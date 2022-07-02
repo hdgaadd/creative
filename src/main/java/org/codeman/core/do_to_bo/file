@@ -1,0 +1,48 @@
+package com.vzan.generic.model.entity;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * @Description: 测试
+ * @Author: hdgaadd
+ * @Version: V1.0
+ */
+@Data
+@TableName("test")
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@ApiModel(value = "测试对象", description = "测试")
+public class Test implements Serializable {
+    private static final long serialVersionUID = 1L;
+    /**
+     * id
+     */
+    @TableId(type = IdType.AUTO)
+    @ApiModelProperty(value = "测试id")
+    private Long id;
+    /**
+     * 测试longId
+     */
+    @TableField
+    @ApiModelProperty(value = "测试longId")
+    private Long longId;
+    /**
+     * 测试activityId
+     */
+    @TableField
+    @ApiModelProperty(value = "测试activityId")
+    private Long activityId;
+}
