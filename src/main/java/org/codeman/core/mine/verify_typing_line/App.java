@@ -1,4 +1,4 @@
-package org.codeman.core.verify_typing_line;
+package org.codeman.core.mine.verify_typing_line;
 
 import lombok.extern.slf4j.Slf4j;
 import org.codeman.common.Address;
@@ -20,7 +20,7 @@ import java.io.InputStreamReader;
 public class App {
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getAddressRun(App.class)), "utf-8"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
             String curLine;
             while ((curLine = bufferedReader.readLine()) != null) {
                 if (curLine.contains(" ")) {

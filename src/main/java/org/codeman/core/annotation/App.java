@@ -1,4 +1,4 @@
-package org.codeman.core.annotation_allset;
+package org.codeman.core.annotation;
 
 /**
  * @author hdgaadd

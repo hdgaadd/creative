@@ -1,4 +1,4 @@
-package org.codeman.core.net_to_java;
+package org.codeman.core.convert.net_to_java;
 
 import lombok.extern.slf4j.Slf4j;
 import org.codeman.common.Address;
@@ -62,7 +62,7 @@ public class App { // TOTO：1.内部类添加、2.对象变量添加
 
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getAddressRun(App.class)), "utf-8"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
             String curLine;
             // 缓存字段注释，让@JsonProperty在注释前面
             StringBuilder curFieldCommentBuilder = new StringBuilder();
@@ -88,7 +88,7 @@ public class App { // TOTO：1.内部类添加、2.对象变量添加
      * @throws IOException
      */
     private static void scanning() throws IOException{
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getAddressRun(App.class)), "utf-8"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
             String curLine;
             while ((curLine = bufferedReader.readLine()) != null) {
                 if (curLine.contains("get") && curLine.contains("set")) realKeyword++;

@@ -1,6 +1,7 @@
-package org.codeman.core.vo_generate;
+package org.codeman.core.create.vo;
 
 import lombok.extern.slf4j.Slf4j;
+import org.codeman.common.Address;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -38,7 +39,7 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        boolean createResult = createFile(new File(System.getProperty("user.dir") + "\\VO.java"), createVo());
+        boolean createResult = createFile(new File(Address.getInstance().setFileName("VO").getRunAddress(App.class)), createVo());
         log.info(createResult ? "======创建VO成功======" : "======创建VO失败======")     ;
     }
 

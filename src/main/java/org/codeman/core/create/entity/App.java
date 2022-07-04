@@ -1,4 +1,4 @@
-package org.codeman.core.entitys_generate;
+package org.codeman.core.create.entity;
 
 /**
  * @author hdgaadd

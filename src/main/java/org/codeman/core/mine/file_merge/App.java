@@ -1,4 +1,4 @@
-package org.codeman.core.file_merge;
+package org.codeman.core.mine.file_merge;
 
 import java.io.*;
 

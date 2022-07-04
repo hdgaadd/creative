@@ -1,4 +1,4 @@
-package org.codeman.core.vo_generate;
+package org.codeman.core.create.vo;
 
 import com.alibaba.fastjson.JSONArray;
 import org.apache.http.HttpEntity;
@@ -29,19 +29,6 @@ public class Translator {
     private static final Map<String, String> LANGUAGE_MAP = new HashMap();
 
     private static Translator _INSTANCE = null;
-
-    /**
-     * 获取单例
-     *
-     * @return
-     */
-    public static Translator getInstance() {
-        if (null == _INSTANCE) {
-            _INSTANCE = new Translator();
-            _INSTANCE.init();
-        }
-        return _INSTANCE;
-    }
 
     /**
      * 初始化语言类
@@ -152,6 +139,19 @@ public class Translator {
         LANGUAGE_MAP.put("yi", "Yiddish");
         LANGUAGE_MAP.put("yo", "Yoruba");
         LANGUAGE_MAP.put("zu", "Zulu");
+    }
+
+    /**
+     * 获取单例
+     *
+     * @return
+     */
+    public static Translator getInstance() {
+        if (null == _INSTANCE) {
+            _INSTANCE = new Translator();
+            _INSTANCE.init();
+        }
+        return _INSTANCE;
     }
 
     /**

@@ -1,4 +1,4 @@
-package org.codeman.core.db_table_create;
+package org.codeman.core.create.db;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

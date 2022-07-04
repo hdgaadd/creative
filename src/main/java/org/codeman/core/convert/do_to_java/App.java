@@ -1,4 +1,4 @@
-package org.codeman.core.do_to_bo;
+package org.codeman.core.convert.do_to_java;
 
 import org.codeman.common.Address;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @author hdgaadd
- * Created on 2022/06/24
+ * Created on 2022/06/24d
  *
  * @Description： DO -> BO
  *
@@ -39,7 +39,7 @@ public class App {
     }
 
     private void handleEveryLine() throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getAddressRun(this.getClass())), "utf-8"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
             StringBuilder builder = new StringBuilder();
             String curLine;
             int index = 0; // 第一个注释不换行

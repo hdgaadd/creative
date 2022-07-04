@@ -1,4 +1,4 @@
-package org.codeman.core.task_movement;
+package org.codeman.core.mine.task_movement;
 
 import lombok.extern.slf4j.Slf4j;
 import org.codeman.common.Address;
@@ -35,7 +35,7 @@ public class App {
     private static final List<String> DONE = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getAddressRun(App.class)), "utf-8"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
             StringBuilder sb = new StringBuilder();
             String preLine = "";
             String curLine;
@@ -82,7 +82,7 @@ public class App {
      * 生成文件
      */
     private static void generateFile() throws IOException {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(Address.getAddressRun(App.class))),"utf-8"))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(Address.getInstance().getRunAddress(App.class))),"utf-8"))) {
             StringBuilder sb = new StringBuilder();
             UNDONE.forEach(item -> {
                 sb.append(item);
