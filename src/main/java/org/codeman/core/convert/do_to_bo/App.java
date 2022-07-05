@@ -1,4 +1,4 @@
-package org.codeman.core.convert.do_to_java;
+package org.codeman.core.convert.do_to_bo;
 
 import org.codeman.common.Address;
 

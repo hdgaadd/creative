@@ -15,15 +15,21 @@ import java.util.Scanner;
  */
 @Slf4j
 public class App {
-
+    /**
+     * VO变量注释
+     */
     private static final String MESSAGE =
             "用户数\n" +
             "男性用户数\n" +
             "女性用户数\n";
-
-    private static String[] MESSAGE_ARR, TRANSLATE_ARR;
-
+    /**
+     * 单词间间隔符号
+     */
     private static String INTERVAL;
+    /**
+     * 缓存集合
+     */
+    private static String[] MESSAGE_ARR, TRANSLATE_ARR;
 
     static {
         try {
@@ -40,7 +46,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         boolean createResult = createFile(new File(Address.getInstance().setFileName("VO").getRunAddress(App.class)), createVo());
-        log.info(createResult ? "======创建VO成功======" : "======创建VO失败======")     ;
+        log.info(createResult ? "======创建VO成功======" : "======创建VO失败======");
     }
 
     /**
@@ -49,35 +55,22 @@ public class App {
     private static String createVo() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < MESSAGE_ARR.length; i++) {
-            sb.append("@ApiModelProperty(value = \"" + MESSAGE_ARR[i] + "\")\r\n"
-                    + "private " + "String " + TRANSLATE_ARR[i] + ";\r\n\n"
+            sb.append("@ApiModelProperty(value = \"" + MESSAGE_ARR[i] + "\")\r\n" +
+                      "private " + "String " + TRANSLATE_ARR[i] + ";\r\n\n"
             );
         }
-        return  sb.toString();
+        return sb.toString();
     }
 
     /**
      * @param file 创建的文件
      * @param context 文件里面的内容
      */
-    private static boolean createFile(File file, String context) {
-        //获取文件
-        File parent = file.getParentFile();
-        //如果是目录
-        if (parent != null) {
-            // 创建目录
-            parent.mkdirs();
-        }
-        try {
-            // 创建文件
-            file.createNewFile();
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(context);
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException e) {
-            System.out.println("创建文件失败:" + e.getMessage());
-        }
+    private static boolean createFile(File file, String context) throws IOException{
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write(context);
+        fileWriter.flush();
+        fileWriter.close();
         return true;
     }
 

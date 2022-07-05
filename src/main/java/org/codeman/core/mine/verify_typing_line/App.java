@@ -19,14 +19,12 @@ import java.io.InputStreamReader;
 @Slf4j
 public class App {
 
+    private static final String KEYWORD = " ";
+
     public static void main(String[] args) throws IOException {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
             String curLine;
-            while ((curLine = bufferedReader.readLine()) != null) {
-                if (curLine.contains(" ")) {
-                    log.info("存在\" \"的行：" + curLine);
-                }
-            }
+            while ((curLine = bufferedReader.readLine()) != null) if (curLine.contains(KEYWORD)) log.info("存在\" \"的行：" + curLine);
         }
     }
 }

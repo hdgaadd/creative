@@ -1,6 +1,7 @@
 package org.codeman.core.create.db;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -13,6 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @Description：  拿取Excel字段，映射成Map，方便进行DBTableCreate的创建表
  */
+@Slf4j
 public class App_Mapping {
     @Data
     static abstract class Example {
@@ -47,7 +49,6 @@ public class App_Mapping {
     public static void main(String[] args) {
         // 模板方法，返回中文和添加"_"的英文的映射Map
         Map<String, String> example = example(new ExampleTwo());
-
         // 使用CreateTable的创建表方法
         createTable(example);
     }
@@ -62,11 +63,11 @@ public class App_Mapping {
         String[] firstArr = splitStr(first, ", "); // 以", "结尾，而不是","
         String[] secondArr = splitStr(second, ", ");
 
-        System.out.println("原xsl的字段个数为：" + firstArr.length);
+        log.info("原xsl的字段个数为：" + firstArr.length);
         for (int i = 0; i < firstArr.length; i++) {
             mapping.put(firstArr[i], transform(secondArr[i]));
         }
-        System.out.println("mpping的个数为（必须与以上一致，否则是覆盖了）：" + mapping.size());
+        log.info("mapping的个数为（必须与以上一致，否则是覆盖了）：" + mapping.size());
         return mapping;
     }
 

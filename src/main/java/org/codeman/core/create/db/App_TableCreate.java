@@ -36,7 +36,7 @@ public class App_TableCreate {
      *
      * @param mapping
      */
-    public static void example(Map<String, String> mapping) { // 要被其他类使用，不能使用static
+    public static void example(Map<String, String> mapping) {
         StringBuilder sb = new StringBuilder();
         // 1.头
         sb.append("CREATE TABLE `" + tableName + "`  (\n");

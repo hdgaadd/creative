@@ -52,7 +52,7 @@ public class App {
                     }
                 }
             }
-            System.out.println("读取文件时，读取到的任务字符数为：" + sb.length());
+            log.info("读取文件时，读取到的任务字符数为：" + sb.length());
         }
 //        printTaskLine();
         generateFile();
@@ -103,7 +103,7 @@ public class App {
                     e.printStackTrace();
                 }
             });
-            System.out.println("生成文件时，读取到的任务字符数为：" + sb.length());
+            log.info("生成文件时，读取到的任务字符数为：" + sb.length());
         }
     }
 

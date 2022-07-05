@@ -77,8 +77,8 @@ public class App { // TOTO：1.内部类添加、2.对象变量添加
 
             System.out.println(BASE_BUILDER);
         }
-        // 变量对比
-        scanning();
+        // 变量个数对比
+        documentScanning();
         log.info("以';'计数，生成的变量个数{}；以'get和set'计数，实际的变量个数：{}", generateKeyword, realKeyword);
     }
 
@@ -87,7 +87,7 @@ public class App { // TOTO：1.内部类添加、2.对象变量添加
      *
      * @throws IOException
      */
-    private static void scanning() throws IOException{
+    private static void documentScanning() throws IOException{
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
             String curLine;
             while ((curLine = bufferedReader.readLine()) != null) {
