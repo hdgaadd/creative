@@ -6,7 +6,7 @@ package org.codeman.common;
  *
  * @Description： 传递执行文件Class对象 -> 获取源文件地址
  */
-public class Address {
+public final class Address {
     /**
      * 源文件名
      */
