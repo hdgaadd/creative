@@ -19,9 +19,7 @@ public class App {
      * VO变量注释
      */
     private static final String MESSAGE =
-            "用户数\n" +
-            "男性用户数\n" +
-            "女性用户数\n";
+            "测试";
     /**
      * 单词间间隔符号
      */

@@ -1,9 +1,18 @@
-@ApiModelProperty(value = "用户数")
-private String userNumber;
+@ApiModelProperty(value = "排名")
+private String ranking;
 
-@ApiModelProperty(value = "男性用户数")
-private String numberOfMaleUsers;
+@ApiModelProperty(value = "推广员ID")
+private String promoterID;
 
-@ApiModelProperty(value = "女性用户数")
-private String numberOfFemaleUsers;
+@ApiModelProperty(value = "推广员")
+private String promoter;
+
+@ApiModelProperty(value = "推广订单数")
+private String numberOfPromotionOrders;
+
+@ApiModelProperty(value = "推广订单金额")
+private String promotionOrderAmount;
+
+@ApiModelProperty(value = "累计佣金")
+private String accumulatedCommission;
 
