@@ -1,4 +1,4 @@
-package org.codeman.core.mine.move;
+package org.codeman.core.mine.file_move;
 
 /**
  * @author hdgaadd
