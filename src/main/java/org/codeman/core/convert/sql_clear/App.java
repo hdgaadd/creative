@@ -3,15 +3,19 @@ package org.codeman.core.convert.sql_clear;
 /**
  * @author hdgaadd
  * Created on 2022/07/26
+ *
  * @Description： 自定义格式化SQL
- * <p>
- * 设计思路：分割为三部分 -> 判断三部分是否存在 -> 格式化
- * <p>
- * TODO: 若原SQL包含回车符，剔除所有回车符后处理
+ *
+ * 设计思路：确认select、from、where各自的范围下标 -> 确认select、from、where各自的字符串 -> 格式化
  */
 public class App {
-    private static final String SQL_SOURCE = "select id, name, age from test where id = 1 and name = \"testName\" and age > 0 order by id";
+    private static String YOUR_SQL = "select id, name, age from test\n" + " where id = 1 and name = \"testName\" and age > 0 order by id";
 
+    private static String SQL_SOURCE = YOUR_SQL.replace("\n", " ");
+
+    private static final StringBuilder BUILDER = new StringBuilder();
+
+    /** 确认select、from、where各自的范围下标 **/
     // 1.select不存在，无影响
     private static final int FIRST_INDEX = 0;
 
@@ -26,14 +30,15 @@ public class App {
             SQL_SOURCE.lastIndexOf("where") != -1 ? SQL_SOURCE.lastIndexOf("where")
                     : (SQL_SOURCE.lastIndexOf("WHERE") != -1 ? SQL_SOURCE.lastIndexOf("WHERE") : SQL_SOURCE.length());
 
+    /** 确认select、from、where各自的字符串 **/
+    // 1.SELECT_STR
     private static final String SELECT_STR = SQL_SOURCE.substring(FIRST_INDEX, SECOND_INDEX);
 
-    // 预防from不存在而where而存在，出现SECOND_INDEX > THIRD_INDEX，导致SQL_SOURCE.substring(SECOND_INDEX, THIRD_INDEX报错：以上情况出现，WHERE_STR设置为""
+    // 2.FROM_STR: 预防from不存在而where而存在，出现SECOND_INDEX > THIRD_INDEX，导致SQL_SOURCE.substring(SECOND_INDEX, THIRD_INDEX报错：以上情况出现，WHERE_STR设置为""
     private static final String FROM_STR = SECOND_INDEX > THIRD_INDEX ? "" : SQL_SOURCE.substring(SECOND_INDEX, THIRD_INDEX);
 
+    // 3.WHERE_STR
     private static final String WHERE_STR = SQL_SOURCE.substring(THIRD_INDEX);
-
-    private static final StringBuilder BUILDER = new StringBuilder();
 
     public static void main(String[] args) {
         handleSelect();
@@ -59,6 +64,7 @@ public class App {
     }
 
     private static void handleFrom() {
+        // add from
         BUILDER.append(FROM_STR).append("\r\n");
     }
 
