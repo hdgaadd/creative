@@ -60,9 +60,8 @@ public class App { // TOTO：1.内部类添加、2.对象变量添加
      */
     private static int realKeyword = 0;
 
-
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
+        try (BufferedReader bufferedReader = Address.getReader(App.class)) {
             String curLine;
             // 缓存字段注释，让@JsonProperty在注释前面
             StringBuilder curFieldCommentBuilder = new StringBuilder();

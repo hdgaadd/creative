@@ -10,168 +10,99 @@ namespace Entity.Test
     public class TestClass
     {
         /// <summary>
-        /// 注释
+        /// 注释1
         /// </summary>
         [SqlField(IsPrimaryKey = true, IsAutoId = true)]
         public int test1 { get; set; } = 0;
 
         /// <summary>
-        /// 注释
+        /// 注释2
         /// </summary>
         [SqlField]
         public int test2 { get; set; } = 0;
 
         /// <summary>
-        /// 注释
+        /// 注释3
         /// </summary>
         [SqlField]
         public int test3 { get; set; } = 0;
 
         /// <summary>
-        /// 注释
+        /// 注释4
         /// </summary>
         [SqlField]
         public int test4 { get; set; } = 0;
 
         /// <summary>
-        /// 注释
+        /// 注释5
         /// </summary>
         [SqlField]
         public int test5 { get; set; } = 0;
 
         /// <summary>
-        /// 注释
+        /// 注释6
         /// </summary>
         [SqlField]
         public string Test6 { get; set; } = string.Empty;
 
         /// <summary>
-        /// 注释
+        /// 注释7
         /// </summary>
         [SqlField]
         public string test7 { get; set; } = string.Empty;
 
         /// <summary>
-        /// 注释
+        /// 注释8
         /// </summary>
         [SqlField]
         public string Test8 { get; set; } = string.Empty;
 
         /// <summary>
-        /// 注释
+        /// 注释9
         /// </summary>
         [SqlField]
         public string test9 { get; set; } = string.Empty;
 
         /// <summary>
-        /// 注释
+        /// 注释10
         /// </summary>
         [SqlField]
         public string test10 { get; set; } = string.Empty;
 
         /// <summary>
-        /// 注释
+        /// 注释11
         /// </summary>
         [SqlField]
         public int test11 { get; set; } = 0;
 
         /// <summary>
-        /// 注释
+        /// 注释12
         /// </summary>
         [SqlField]
         public int test12 { get; set; } = 0;
 
         /// <summary>
-        /// 注释
+        /// 注释13
         /// </summary>
         [SqlField]
         public int test13 { get; set; } = 0;
 
         /// <summary>
-        /// 注释
+        /// 注释14
         /// </summary>
         [SqlField]
         public DateTime test14 { get; set; } = DateTime.Now;
 
         /// <summary>
-        /// 注释
+        /// 注释15
         /// </summary>
         [SqlField]
         public int test15 { get; set; } = 0;
 
         /// <summary>
-        /// 注释
+        /// 注释16
         /// </summary>
         [SqlField]
         public int test16 { get; set; } = 0;
 
-
-        #region 额外信息
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public string test17 { get; set; } = string.Empty;
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public string test18 { get; set; } = string.Empty;
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public string test19 { get; set; } = string.Empty;
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public string[] test20 { get; set; } = null;
-
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public string test21 { get; set; } = string.Empty;
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public bool test22 { get; set; } = false;
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public bool test23 { get; set; } = false;
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public bool test24 { get; set; } = false;
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public string test25 { get; set; } = string.Empty;
-
-        public List<Interaction> test26  {get; set; } = null;
-
-        public string Test27 { get; set; } = string.Empty;
-        #endregion
-
-    }
-
-    /// <summary>
-    /// 注释
-    /// </summary>
-    public class View
-    {
-        public SiteInfo test28 { set; get; } = null;
-
-        public TestView test29 { set; get; } = null;
-
-        public UserInfo test30 { set; get; } = null;
-
-        public bool test31 { set; get; } = false;
-
-        public bool test32 { set; get; } = true;
-
-        public zAttr test33 { set; get; } = null;
-
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public int test34 { get; set; } = 0;
-    }
 }

@@ -1,5 +1,10 @@
 package org.codeman.common;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * @author hdgaadd
  * Created on 2022/07/02
@@ -47,6 +52,15 @@ public final class Address {
         int endIndex = objPath.lastIndexOf(".");
 
         return PROJECT_PATH + "\\src\\main\\java\\org\\codeman\\" + objPath.substring(firstIndex, endIndex).replace(".", "\\") + "\\" + FILE_NAME;
+    }
+
+    /**
+     * @param clazz
+     * @return 执行文件对象
+     * @throws IOException
+     */
+    public static BufferedReader getReader(Class clazz) throws IOException {
+        return new BufferedReader(new InputStreamReader(new FileInputStream(new Address().getRunAddress(clazz)), "utf-8"));
     }
 
     /**

@@ -39,7 +39,7 @@ public class App {
     }
 
     private void handleEveryLine() throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
+        try (BufferedReader bufferedReader = Address.getReader(App.class)) {
             StringBuilder builder = new StringBuilder();
             String curLine;
             int index = 0; // 第一个注释不换行
