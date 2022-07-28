@@ -9,6 +9,7 @@ package org.codeman.core.convert.sql_clear;
  * 设计思路：确认select、from、where各自的范围下标 -> 确认select、from、where各自的字符串 -> 格式化
  */
 public class App {
+
     private static String YOUR_SQL = "select id, name, age from test\n" + " where id = 1 and name = \"testName\" and age > 0 order by id";
 
     private static String SQL_SOURCE = YOUR_SQL.replace("\n", " ");
@@ -20,15 +21,10 @@ public class App {
     private static final int FIRST_INDEX = 0;
 
     // 2.from或FROM不存在，则设置SECOND_INDEX的长度为：select内容的尾部，以使SELECT_STR剔除非select内容
-    private static final int SECOND_INDEX =
-            SQL_SOURCE.lastIndexOf("from") != -1 ? SQL_SOURCE.lastIndexOf("from")
-                    : (SQL_SOURCE.lastIndexOf("FROM") != -1 ? SQL_SOURCE.lastIndexOf("FROM")
-                    : SQL_SOURCE.substring(SQL_SOURCE.lastIndexOf(",") + 2).indexOf(" ") + SQL_SOURCE.lastIndexOf(",") + 2); // + 2：预防','后有空格，导致index(" ")取错
+    private static final int SECOND_INDEX = SQL_SOURCE.lastIndexOf("from") != -1 ? SQL_SOURCE.lastIndexOf("from") : (SQL_SOURCE.lastIndexOf("FROM") != -1 ? SQL_SOURCE.lastIndexOf("FROM") : SQL_SOURCE.substring(SQL_SOURCE.lastIndexOf(",") + 2).indexOf(" ") + SQL_SOURCE.lastIndexOf(",") + 2); // + 2：预防','后有空格，导致index(" ")取错
 
     // 3.where或WHERE不存在，使WHERE_STR设置为""
-    private static final int THIRD_INDEX =
-            SQL_SOURCE.lastIndexOf("where") != -1 ? SQL_SOURCE.lastIndexOf("where")
-                    : (SQL_SOURCE.lastIndexOf("WHERE") != -1 ? SQL_SOURCE.lastIndexOf("WHERE") : SQL_SOURCE.length());
+    private static final int THIRD_INDEX = SQL_SOURCE.lastIndexOf("where") != -1 ? SQL_SOURCE.lastIndexOf("where") : (SQL_SOURCE.lastIndexOf("WHERE") != -1 ? SQL_SOURCE.lastIndexOf("WHERE") : SQL_SOURCE.length());
 
     /** 确认select、from、where各自的字符串 **/
     // 1.SELECT_STR
@@ -71,7 +67,7 @@ public class App {
     private static void handleWhere() {
         // add where
         int whereIndex = WHERE_STR.indexOf(" ") != -1 ? SELECT_STR.indexOf(" ") : 0;
-        BUILDER.append(WHERE_STR, 0, whereIndex).append("\r\n");
+        BUILDER.append(WHERE_STR, 0, whereIndex);
 
         // add others
         String[] others = WHERE_STR.substring(whereIndex).split("and");

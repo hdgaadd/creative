@@ -12,16 +12,7 @@ import java.io.IOException;
 
 // 移动文件，而不是移动整个文件夹，不会遍历排序；而rnameTo也是移动文件
 public class CutFiles {
-    /**
-     * 1.剪切文件夹
-     * <p>
-     * 思路:
-     * 1. 找到指定的文件夹
-     * 2. 遍历目录,找到所有的文件
-     * 3. 读写
-     * 4. 删除文件夹
-     * 5. 释放资源
-     */
+
     public static void main(String[] args) {
         // 源地址
         String sourcePath = "D:\\move";
