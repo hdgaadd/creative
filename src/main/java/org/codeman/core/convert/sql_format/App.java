@@ -1,4 +1,4 @@
-package org.codeman.core.convert.sql_clear;
+package org.codeman.core.convert.sql_format;
 
 /**
  * @author hdgaadd
