@@ -1,4 +1,4 @@
-package org.codeman.core.create.db;
+package org.codeman.core.generate.db;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -12,10 +12,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author hdgaadd
  * Created on 2022/04/13
  *
- * @Description：  拿取Excel字段，映射成Map，方便进行DBTableCreate的创建表
+ * @Description：  拿取Excel字段，映射成返回中文和添加"_"的英文的映射Map
  */
 @Slf4j
-public class App_Mapping {
+public class FieldMapping {
     @Data
     static abstract class Example {
         /**
@@ -48,15 +48,13 @@ public class App_Mapping {
 
     public static void main(String[] args) {
         // 模板方法，返回中文和添加"_"的英文的映射Map
-        Map<String, String> example = example(new ExampleTwo());
-        // 使用CreateTable的创建表方法
-        createTable(example);
+        System.out.println(getMapping(new ExampleTwo()));
     }
 
     /**
      * 模板方法，返回中文和英文的映射Map
      */
-    private static Map<String, String> example(Example example) {
+    public static Map<String, String> getMapping(Example example) {
         String first = example.getStrOne();
         String second = example.getStrTwo();
         Map<String, String> mapping = new LinkedHashMap<>();
@@ -69,15 +67,6 @@ public class App_Mapping {
         }
         log.info("mapping的个数为（必须与以上一致，否则是覆盖了）：" + mapping.size());
         return mapping;
-    }
-
-    /**
-     * 使用CreateTable的创建表方法
-     *
-     * @param mapping
-     */
-    public static void createTable(Map<String, String> mapping) {
-        App_TableCreate.example(mapping);
     }
 
     /**

@@ -75,8 +75,7 @@ public class App {
             if (i != 0) {
                 BUILDER.append("and");
             }
-            BUILDER.append(others[i])
-                    .append("\r\n");
+            BUILDER.append(others[i]).append("\r\n");
         }
     }
 }

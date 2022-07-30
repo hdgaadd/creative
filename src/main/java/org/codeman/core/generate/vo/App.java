@@ -1,4 +1,4 @@
-package org.codeman.core.create.vo;
+package org.codeman.core.generate.vo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.codeman.common.Address;

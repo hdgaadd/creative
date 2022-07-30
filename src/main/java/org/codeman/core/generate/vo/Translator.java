@@ -1,4 +1,4 @@
-package org.codeman.core.create.vo;
+package org.codeman.core.generate.vo;
 
 import com.alibaba.fastjson.JSONArray;
 import org.apache.http.HttpEntity;

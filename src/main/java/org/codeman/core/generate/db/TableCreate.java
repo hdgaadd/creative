@@ -1,4 +1,4 @@
-package org.codeman.core.create.db;
+package org.codeman.core.generate.db;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -9,26 +9,26 @@ import java.util.Map;
  *
  * @Description： 根据由字段名及字段类型的Map，快捷创建表语句
  */
-public class App_TableCreate {
+public class TableCreate {
     /**
      * SQL参考模板
      */
-    private static final String example = "CREATE TABLE `test`  (\n" +
+    private static final String SQL_EXAMPLE = "CREATE TABLE `test`  (\n" +
             "  `id` int(11) NOT NULL COMMENT '序号',\n" +
             "  `comments` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '测试字段',\n" +
             ") ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '测试表' ROW_FORMAT = Dynamic;";
 
-    private static final String tableName = "test";
+    private static final String TABLE_NAME = "test";
 
-    private static final String commentTable = "测试表";
+    private static final String TABLE_COMMENT = "测试表";
 
     /**
      * 测试Map模板
      */
-    private static final Map<String, String> exampleMap = new LinkedHashMap<String, String>(){{ put("序号", "id"); put("名称", "name");}};
+    private static final Map<String, String> EXAMPLE_MAP = new LinkedHashMap<String, String>(){{ put("序号", "id"); put("名称", "name");}};
 
     public static void main(String[] args) {
-        example(exampleMap);
+        create(EXAMPLE_MAP);
     }
 
     /**
@@ -36,10 +36,10 @@ public class App_TableCreate {
      *
      * @param mapping
      */
-    public static void example(Map<String, String> mapping) {
+    public static void create(Map<String, String> mapping) {
         StringBuilder sb = new StringBuilder();
         // 1.头
-        sb.append("CREATE TABLE `" + tableName + "`  (\n");
+        sb.append("CREATE TABLE `" + TABLE_NAME + "`  (\n");
 
         // 2.中
         int index = 0;
@@ -57,7 +57,7 @@ public class App_TableCreate {
         }
 
         // 3.尾
-        sb.append("  PRIMARY KEY (`" + idName + "`) USING BTREE\n) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '" + commentTable + "' ROW_FORMAT = Dynamic;");
+        sb.append("  PRIMARY KEY (`" + idName + "`) USING BTREE\n) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '" + TABLE_COMMENT + "' ROW_FORMAT = Dynamic;");
 
         System.out.println(sb.toString());
     }
