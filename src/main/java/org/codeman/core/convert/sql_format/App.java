@@ -10,9 +10,9 @@ package org.codeman.core.convert.sql_format;
  */
 public class App {
 
-    private static String YOUR_SQL = "select id, name, age from test\n" + " where id = 1 and name = \"testName\" and age > 0 order by id";
+    private static final String YOUR_SQL = "";
 
-    private static String SQL_SOURCE = YOUR_SQL.replace("\n", " ");
+    private static final String SQL_SOURCE = YOUR_SQL.replace("\n", " ");
 
     private static final StringBuilder BUILDER = new StringBuilder();
 
