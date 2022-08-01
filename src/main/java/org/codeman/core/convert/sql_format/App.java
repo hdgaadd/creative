@@ -1,5 +1,7 @@
 package org.codeman.core.convert.sql_format;
 
+import org.codeman.common.Address;
+
 /**
  * @author hdgaadd
  * Created on 2022/07/26
@@ -10,9 +12,7 @@ package org.codeman.core.convert.sql_format;
  */
 public class App {
 
-    private static final String YOUR_SQL = "";
-
-    private static final String SQL_SOURCE = YOUR_SQL.replace("\n", " ");
+    private static final String SQL_SOURCE = Address.readFileToString(App.class, "YOUR_SQL");
 
     private static final StringBuilder BUILDER = new StringBuilder();
 
@@ -78,4 +78,5 @@ public class App {
             BUILDER.append(others[i]).append("\r\n");
         }
     }
+
 }

@@ -19,7 +19,9 @@ public class App {
      * VO变量注释
      */
     private static final String MESSAGE =
-            "测试";
+            "测试姓名\n" +
+            "测试地址";
+//    private static final String MESSAGE = Address.readFileToString(App.class, "MESSAGE");
     /**
      * 单词间间隔符号
      */

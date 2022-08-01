@@ -1,18 +1,6 @@
-@ApiModelProperty(value = "排名")
-private String ranking;
+@ApiModelProperty(value = "测试姓名")
+private String test Name;
 
-@ApiModelProperty(value = "推广员ID")
-private String promoterID;
-
-@ApiModelProperty(value = "推广员")
-private String promoter;
-
-@ApiModelProperty(value = "推广订单数")
-private String numberOfPromotionOrders;
-
-@ApiModelProperty(value = "推广订单金额")
-private String promotionOrderAmount;
-
-@ApiModelProperty(value = "累计佣金")
-private String accumulatedCommission;
+@ApiModelProperty(value = "测试地址")
+private String test Address;
 

@@ -1,9 +1,9 @@
 package org.codeman.common;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.apache.commons.io.FileUtils;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author hdgaadd
@@ -37,7 +37,7 @@ public final class Address {
     }
 
     public Address setFileName(String fileName) {
-        this.FILE_NAME = fileName;
+        FILE_NAME = fileName;
         return this;
     }
 
@@ -45,7 +45,7 @@ public final class Address {
      * @param
      * @return 执行文件地址
      */
-    public String getRunAddress(Class clazz) {
+    public static String getRunAddress(Class clazz) {
         String objPath = clazz.getName();
         // 主包名
         int firstIndex = objPath.lastIndexOf("core");
@@ -60,7 +60,7 @@ public final class Address {
      * @throws IOException
      */
     public static BufferedReader getReader(Class clazz) throws IOException {
-        return new BufferedReader(new InputStreamReader(new FileInputStream(new Address().getRunAddress(clazz)), "utf-8"));
+        return new BufferedReader(new InputStreamReader(new FileInputStream(getRunAddress(clazz)), StandardCharsets.UTF_8));
     }
 
     /**
@@ -68,6 +68,21 @@ public final class Address {
      */
     public static String getAddressOfClass() {
         return SOURCE_PATH;
+    }
+
+    /**
+     * @param clazz
+     * @return 文件String格式
+     */
+    public static String readFileToString(Class clazz, String fileName) {
+        FILE_NAME = fileName;
+        String fileStr = null;
+        try {
+            fileStr = FileUtils.readFileToString(new File(getRunAddress(clazz)), StandardCharsets.UTF_8).replace("\r\n", " ");;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return fileStr;
     }
 
 }
