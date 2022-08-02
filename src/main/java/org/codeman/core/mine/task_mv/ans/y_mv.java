@@ -15,7 +15,7 @@ import java.util.List;
  *
  * 注意事项：
  * 1.确保最后一行空行俩行，原因为没处理最后一行的情况
- * 2.两个TaskMovement的区别，只是其中一个没有"package com.codeman.file.TaskMovement;"，且PROJECT_PATH不同
+ * 2.两个TaskMovement的区别，只是其中一个没有"package com.codeman.FILE.TaskMovement;"，且PROJECT_PATH不同
  *
  * bugs：
  * 1.F后面有空格会导致F不被识别

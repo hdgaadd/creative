@@ -24,7 +24,7 @@ public class APP {
 
         // 移动文件夹，但是move会删除，且new_move必须不存在
         try {
-//            FileUtils.moveFile(new File("F:/file/4spaces.txt"), new File("F:/4spaces/4spaces.txt"));
+//            FileUtils.moveFile(new File("F:/FILE/4spaces.txt"), new File("F:/4spaces/4spaces.txt"));
             FileUtils.moveDirectory(new File(fromPath), new File(toPath));
         } catch (IOException e) {
             e.printStackTrace();

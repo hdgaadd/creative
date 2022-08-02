@@ -15,7 +15,7 @@ public final class Address {
     /**
      * 源文件名
      */
-    private static String FILE_NAME = "file";
+    private static String FILE_NAME = "FILE";
     /**
      * 项目地址
      */

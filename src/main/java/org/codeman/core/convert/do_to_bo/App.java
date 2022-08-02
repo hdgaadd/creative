@@ -49,7 +49,6 @@ public class App {
             while ((curLine = bufferedReader.readLine()) != null) {
                 // 若是注释，设置StringBuilder不进行添加
                 boolean isUnexpected = false;
-
                 for (String detail : UNEXPECTED) {
                     if (curLine.contains(detail)) {
                         // 若是注释末尾，换行
@@ -61,7 +60,6 @@ public class App {
                         break;
                     }
                 }
-
                 // BUILDER不会抓获换行，须手动添加
                 if (!isUnexpected) BUILDER.append(curLine).append("\r\n");
             }
