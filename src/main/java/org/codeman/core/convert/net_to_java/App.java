@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -87,7 +88,7 @@ public class App { // TOTO：1.内部类添加、2.对象变量添加
      * @throws IOException
      */
     private static void documentScanning() throws IOException{
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
+        try (BufferedReader bufferedReader = Address.getReader(App.class)) {
             String curLine;
             while ((curLine = bufferedReader.readLine()) != null) {
                 if (curLine.contains("get") && curLine.contains("set")) realKeyword++;

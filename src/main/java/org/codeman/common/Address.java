@@ -36,16 +36,11 @@ public final class Address {
         return _INSTANCE;
     }
 
-    public Address setFileName(String fileName) {
-        FILE_NAME = fileName;
-        return this;
-    }
-
     /**
      * @param
      * @return 执行文件地址
      */
-    public static String getRunAddress(Class clazz) {
+    public static String returnRunAddress(Class clazz) {
         String objPath = clazz.getName();
         // 主包名
         int firstIndex = objPath.lastIndexOf("core");
@@ -55,12 +50,22 @@ public final class Address {
     }
 
     /**
+     * @param newFileName
      * @param clazz
-     * @return 执行文件对象
+     * @return 执行文件地址
+     */
+    public static String nameAndAddress(String newFileName, Class clazz) {
+        FILE_NAME = newFileName;
+        return returnRunAddress(clazz);
+    }
+
+    /**
+     * @param clazz
+     * @return BufferedReader执行对象
      * @throws IOException
      */
     public static BufferedReader getReader(Class clazz) throws IOException {
-        return new BufferedReader(new InputStreamReader(new FileInputStream(getRunAddress(clazz)), StandardCharsets.UTF_8));
+        return new BufferedReader(new InputStreamReader(new FileInputStream(returnRunAddress(clazz)), StandardCharsets.UTF_8));
     }
 
     /**
@@ -78,7 +83,7 @@ public final class Address {
         FILE_NAME = fileName;
         String fileStr = null;
         try {
-            fileStr = FileUtils.readFileToString(new File(getRunAddress(clazz)), StandardCharsets.UTF_8).replace("\r\n", " ");;
+            fileStr = FileUtils.readFileToString(new File(returnRunAddress(clazz)), StandardCharsets.UTF_8).replace("\r\n", " ");;
         } catch (IOException e) {
             e.printStackTrace();
         }

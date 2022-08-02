@@ -31,16 +31,20 @@ public class App {
         add("@TableField");
         add("@TableId(type = IdType.AUTO)");
     }};
+    /**
+     * BUILDER
+     */
+    private static final StringBuilder BUILDER = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
-        new App().handleEveryLine();
+        handleEveryLine();
+        System.out.println(BUILDER);
     }
 
-    private void handleEveryLine() throws IOException {
+    private static void handleEveryLine() throws IOException {
         try (BufferedReader bufferedReader = Address.getReader(App.class)) {
-            StringBuilder builder = new StringBuilder();
             String curLine;
-            int index = 0; // 第一个注释不换行
+            int lineIndex = 0; // 第一个注释不换行
 
             while ((curLine = bufferedReader.readLine()) != null) {
                 // 若是注释，设置StringBuilder不进行添加
@@ -51,20 +55,16 @@ public class App {
                         // 若是注释末尾，换行
                         if (detail.equals("*/")) {
                             // 第一个注释不换行
-                            if (index++ != 0) builder.append("\r\n");
+                            if (lineIndex++ != 0) BUILDER.append("\r\n");
                         }
                         isUnexpected = true;
                         break;
                     }
                 }
 
-                // StringBuilder不会抓获换行，需要手动添加
-                if (!isUnexpected) {
-                    builder.append(curLine).append("\r\n");
-                }
+                // BUILDER不会抓获换行，须手动添加
+                if (!isUnexpected) BUILDER.append(curLine).append("\r\n");
             }
-
-            System.out.println(builder);
         }
     }
 

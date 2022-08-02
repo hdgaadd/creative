@@ -1,9 +1,10 @@
-package org.codeman.core.mine.task_movement;
+package org.codeman.core.mine.task_mv;
 
 import lombok.extern.slf4j.Slf4j;
 import org.codeman.common.Address;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class App {
     private static final List<String> DONE = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Address.getInstance().getRunAddress(App.class)), "utf-8"))) {
+        try (BufferedReader bufferedReader = Address.getReader(App.class)) {
             StringBuilder sb = new StringBuilder();
             String preLine = "";
             String curLine;
@@ -82,7 +83,7 @@ public class App {
      * 生成文件
      */
     private static void generateFile() throws IOException {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(Address.getInstance().getRunAddress(App.class))),"utf-8"))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(Address.returnRunAddress(App.class))), StandardCharsets.UTF_8))) {
             StringBuilder sb = new StringBuilder();
             UNDONE.forEach(item -> {
                 sb.append(item);
@@ -93,7 +94,6 @@ public class App {
                     e.printStackTrace();
                 }
             });
-            bufferedWriter.write("\n\r");
             DONE.forEach(item -> {
                 sb.append(item);
                 try {

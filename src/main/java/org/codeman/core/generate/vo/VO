@@ -1,6 +1,6 @@
 @ApiModelProperty(value = "测试姓名")
-private String test Name;
+private String testName;
 
 @ApiModelProperty(value = "测试地址")
-private String test Address;
+private String testAddress;
 
