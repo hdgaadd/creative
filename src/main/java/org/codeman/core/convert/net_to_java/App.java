@@ -4,10 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.codeman.common.Address;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,12 +14,12 @@ import java.util.Map;
  * @author hdgaadd
  * Created on 2022/06/25
  *
- * @Description： .NET -> Java
+ * @Description: .NET -> Java
  *
- * 设计思路：去除不期望的 -> 缓存字段注释 -> 内容替换，添加@JsonProperty，添加缓存字段注释，添加变量声明
+ * 设计思路: 去除不期望的 -> 缓存字段注释 -> 内容替换，添加@JsonProperty，添加缓存字段注释，添加变量声明
  */
 @Slf4j
-public class App { // TOTO：1.内部类添加、2.对象变量添加
+public class App {
     /**
      * 不期望出现的字符串
      */
@@ -79,7 +76,7 @@ public class App { // TOTO：1.内部类添加、2.对象变量添加
         }
         // 变量个数对比
         documentScanning();
-        log.info("以';'计数，生成的变量个数{}；以'get和set'计数，实际的变量个数：{}", generateKeyword, realKeyword);
+        log.info("以';'计数，生成的变量个数{}；以'get和set'计数，实际的变量个数: {}", generateKeyword, realKeyword);
     }
 
     /**
@@ -100,7 +97,7 @@ public class App { // TOTO：1.内部类添加、2.对象变量添加
      * 1.去除不期望的
      *
      * @param curLine
-     * @return 是否该curLine执行了该操作：去除不期望的
+     * @return 是否该curLine执行了该操作: 去除不期望的
      */
     private static boolean handleUnexpected(String curLine) {
         // 执行第1步
@@ -118,7 +115,7 @@ public class App { // TOTO：1.内部类添加、2.对象变量添加
      * @param curLine
      * @param isUnexpected
      * @param curFieldNameBuilder
-     * @return 是否该curLine执行了该操作：缓存缓存字段注释
+     * @return 是否该curLine执行了该操作: 缓存缓存字段注释
      */
     private static boolean cacheFieldName(String curLine, boolean isUnexpected, StringBuilder curFieldNameBuilder) {
         // 第1步不执行，才执行2

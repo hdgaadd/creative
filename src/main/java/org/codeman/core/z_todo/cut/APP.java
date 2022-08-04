@@ -1,4 +1,4 @@
-package org.codeman.core.mine.file_move;
+package org.codeman.core.z_todo.cut;
 
 import org.apache.commons.io.FileUtils;
 

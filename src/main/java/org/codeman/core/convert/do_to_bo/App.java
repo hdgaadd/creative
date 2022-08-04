@@ -11,13 +11,9 @@ import java.util.List;
  * @author hdgaadd
  * Created on 2022/06/24d
  *
- * @Description： DO -> BO
+ * @Description: DO -> BO
  *
- * 设计思路：读取每一行，剔除不希望的
- *
- * why not 正则表达式:
- * 1.不知道如何设置多行匹配，都是匹配一行
- * 2.特殊字符，正则表达式如何标明
+ * 设计思路: 读取每一行，剔除不希望的
  */
 public class App {
     /**

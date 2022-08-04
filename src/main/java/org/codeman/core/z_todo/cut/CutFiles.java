@@ -1,4 +1,4 @@
-package org.codeman.core.mine.file_move;
+package org.codeman.core.z_todo.cut;
 
 /**
  * @author hdgaadd
@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-// 移动文件，而不是移动整个文件夹，不会遍历排序；而rnameTo也是移动文件
+// 移动文件，而不是移动整个文件夹，不会遍历排序；而renameTo也是移动文件
 public class CutFiles {
 
     public static void main(String[] args) {

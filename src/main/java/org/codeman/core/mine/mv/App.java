@@ -1,4 +1,4 @@
-package org.codeman.core.mine.task_mv;
+package org.codeman.core.mine.mv;
 
 import lombok.extern.slf4j.Slf4j;
 import org.codeman.common.Address;
@@ -12,15 +12,15 @@ import java.util.List;
  * @author hdgaadd
  * Created on 2022/06/12
  *
- * @Description： Z_task_ans中的非F行，移动到最前，实现任务提醒，个人使用
+ * @Description:  Z_task_ans中的非F行，移动到最前，实现任务提醒，个人使用
  *
- * 设计思路：如果上面有空行则进行匹配为一行，后续打印需打印空行
+ * 设计思路: 如果上面有空行则进行匹配为一行，后续打印需打印空行
  *
- * 注意事项：
+ * 注意事项:
  * 1.确保最后一行空行俩行，原因为没处理最后一行的情况
  * 2.两个TaskMovement的区别，只是其中一个没有"package com.codeman.FILE.TaskMovement;"，且PROJECT_PATH不同
  *
- * bugs：
+ * bugs:
  * 1.F后面有空格会导致F不被识别
  * 2.退出PC登录个人账户 ，为什么在F下，原因为与前一行合为同一个行
  */
@@ -53,7 +53,7 @@ public class App {
                     }
                 }
             }
-            log.info("读取文件时，读取到的任务字符数为：" + sb.length());
+            log.info("读取文件时，读取到的任务字符数为: " + sb.length());
         }
 //        printTaskLine();
         generateFile();
@@ -103,7 +103,7 @@ public class App {
                     e.printStackTrace();
                 }
             });
-            log.info("生成文件时，读取到的任务字符数为：" + sb.length());
+            log.info("生成文件时，读取到的任务字符数为: " + sb.length());
         }
     }
 

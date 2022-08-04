@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author hdgaadd
  * Created on 2022/07/30
  *
- * 设计： 生成中文和添加"_"的英文映射Map -> 创建表
+ * 设计: 生成中文和添加"_"的英文映射Map -> 创建表
  */
 @Slf4j
 public class App {
@@ -89,11 +89,11 @@ public class App {
         String[] firstArr = splitStr(first, ", "); // 以", "结尾，而不是","
         String[] secondArr = splitStr(second, ", ");
 
-        log.info("原xsl的字段个数为：" + firstArr.length);
+        log.info("原xsl的字段个数为: " + firstArr.length);
         for (int i = 0; i < firstArr.length; i++) {
             mapping.put(firstArr[i], transform(secondArr[i]));
         }
-        log.info("mapping的个数为（必须与以上一致，否则是覆盖了）：" + mapping.size());
+        log.info("mapping的个数为（必须与以上一致，否则是覆盖了）: " + mapping.size());
         return mapping;
     }
 

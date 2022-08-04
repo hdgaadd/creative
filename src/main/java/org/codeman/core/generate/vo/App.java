@@ -11,7 +11,7 @@ import java.util.Scanner;
 /**
  * Created by hdgaadd on 2021/12/06/18:25
  *
- * @Description： 识图取字 -> 翻译 -> 创建VO
+ * @Description:  识图取字 -> 翻译 -> 创建VO
  */
 @Slf4j
 public class App {
@@ -30,7 +30,7 @@ public class App {
 
     static {
         try {
-            log.info("是否变量名的单词组成，单词与单词之间之间无空格：0 无 1 有");
+            log.info("是否变量名的单词组成，单词与单词之间之间无空格: 0 无 1 有");
             INTERVAL = new Scanner(System.in).nextInt() == 0 ? "" : " ";
 
             MESSAGE_ARR = MESSAGE.split("\n");

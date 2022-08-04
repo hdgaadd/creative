@@ -6,9 +6,9 @@ import org.codeman.common.Address;
  * @author hdgaadd
  * Created on 2022/07/26
  *
- * @Description： 自定义格式化SQL
+ * @Description:  自定义格式化SQL
  *
- * 设计思路：确认select、from、where各自的范围下标 -> 确认select、from、where各自的字符串 -> 格式化
+ * 设计思路: 确认select、from、where各自的范围下标 -> 确认select、from、where各自的字符串 -> 格式化
  */
 public class App {
 
@@ -20,8 +20,8 @@ public class App {
     // 1.select不存在，无影响
     private static final int FIRST_INDEX = 0;
 
-    // 2.from或FROM不存在，则设置SECOND_INDEX的长度为：select内容的尾部，以使SELECT_STR剔除非select内容
-    private static final int SECOND_INDEX = SQL_SOURCE.lastIndexOf("from") != -1 ? SQL_SOURCE.lastIndexOf("from") : (SQL_SOURCE.lastIndexOf("FROM") != -1 ? SQL_SOURCE.lastIndexOf("FROM") : SQL_SOURCE.substring(SQL_SOURCE.lastIndexOf(",") + 2).indexOf(" ") + SQL_SOURCE.lastIndexOf(",") + 2); // + 2：预防','后有空格，导致index(" ")取错
+    // 2.from或FROM不存在，则设置SECOND_INDEX的长度为: select内容的尾部，以使SELECT_STR剔除非select内容
+    private static final int SECOND_INDEX = SQL_SOURCE.lastIndexOf("from") != -1 ? SQL_SOURCE.lastIndexOf("from") : (SQL_SOURCE.lastIndexOf("FROM") != -1 ? SQL_SOURCE.lastIndexOf("FROM") : SQL_SOURCE.substring(SQL_SOURCE.lastIndexOf(",") + 2).indexOf(" ") + SQL_SOURCE.lastIndexOf(",") + 2); // + 2: 预防','后有空格，导致index(" ")取错
 
     // 3.where或WHERE不存在，使WHERE_STR设置为""
     private static final int THIRD_INDEX = SQL_SOURCE.lastIndexOf("where") != -1 ? SQL_SOURCE.lastIndexOf("where") : (SQL_SOURCE.lastIndexOf("WHERE") != -1 ? SQL_SOURCE.lastIndexOf("WHERE") : SQL_SOURCE.length());
@@ -30,7 +30,7 @@ public class App {
     // 1.SELECT_STR
     private static final String SELECT_STR = SQL_SOURCE.substring(FIRST_INDEX, SECOND_INDEX);
 
-    // 2.FROM_STR: 预防from不存在而where而存在，出现SECOND_INDEX > THIRD_INDEX，导致SQL_SOURCE.substring(SECOND_INDEX, THIRD_INDEX报错：以上情况出现，WHERE_STR设置为""
+    // 2.FROM_STR: 预防from不存在而where而存在，出现SECOND_INDEX > THIRD_INDEX，导致SQL_SOURCE.substring(SECOND_INDEX, THIRD_INDEX报错: 以上情况出现，WHERE_STR设置为""
     private static final String FROM_STR = SECOND_INDEX > THIRD_INDEX ? "" : SQL_SOURCE.substring(SECOND_INDEX, THIRD_INDEX);
 
     // 3.WHERE_STR
