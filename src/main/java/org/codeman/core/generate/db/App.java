@@ -109,10 +109,8 @@ public class App {
     }
 
     /**
-     * 第一个字符串转换为小写，并添加"_"
-     *
      * @param str
-     * @return
+     * @return 第一个字符串转换为小写，并添加"_"
      */
     private static String transform(String str) {
         StringBuilder sb = new StringBuilder();

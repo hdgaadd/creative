@@ -1,4 +1,4 @@
-package org.codeman.core.mine.verify;
+package org.codeman.core.personal.verify;
 
 import lombok.extern.slf4j.Slf4j;
 import org.codeman.common.Address;

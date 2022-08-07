@@ -1,4 +1,4 @@
-package org.codeman.core.z_todo.cut;
+package org.codeman.core.todo.cut;
 
 import org.apache.commons.io.FileUtils;
 

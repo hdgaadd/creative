@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class App {
     /**
-     * 不期望出现的字符串
+     * 不期望出现的
      */
     private static final List<String> UNEXPECTED = new ArrayList<String>(){{
         add("/**");

@@ -1,4 +1,4 @@
-package org.codeman.core.mine.mv;
+package org.codeman.core.personal.mv;
 
 import lombok.extern.slf4j.Slf4j;
 import org.codeman.common.Address;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author hdgaadd
  * Created on 2022/06/12
  *
- * @Description:  Z_task_ans中的非F行，移动到最前，实现任务提醒，个人使用
+ * @Description: Z_task_ans中的非F行，移动到最前，实现任务提醒，个人使用
  *
  * 设计思路: 如果上面有空行则进行匹配为一行，后续打印需打印空行
  *
@@ -22,7 +22,7 @@ import java.util.List;
  *
  * bugs:
  * 1.F后面有空格会导致F不被识别
- * 2.退出PC登录个人账户 ，为什么在F下，原因为与前一行合为同一个行
+ * 2.'退出PC登录个人账户' ，为什么在F下，原因为与前一行合为同一个行
  */
 @Slf4j
 public class App {
@@ -108,7 +108,7 @@ public class App {
     }
 
     /**
-     * 打印
+     * print
      */
     private static void printTaskLine() {
         UNDONE.forEach(item -> {

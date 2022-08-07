@@ -21,7 +21,7 @@ import java.util.Map;
 @Slf4j
 public class App {
     /**
-     * 不期望出现的字符串
+     * 不期望出现的
      */
     private static final List<String> UNEXPECTED = new ArrayList<String>() {{
         add("/// <summary>");
@@ -68,7 +68,7 @@ public class App {
                 boolean isUnexpected = handleUnexpected(curLine);
                 // 2.缓存字段注释
                 boolean isFieldName = cacheFieldName(curLine, isUnexpected, curFieldCommentBuilder);
-                // 3.内容替换，添加@JsonProperty，添加缓存字段注释，添加变量声明
+                // 3.内容替换、添加@JsonProperty、添加缓存字段注释、添加变量声明
                 handleReplaceContent(curLine, isUnexpected, isFieldName, curFieldCommentBuilder);
             }
 
