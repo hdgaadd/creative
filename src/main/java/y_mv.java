@@ -1,8 +1,3 @@
-package org.codeman.core.personal.mv;
-
-import lombok.extern.slf4j.Slf4j;
-import org.codeman.common.Address;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -12,20 +7,20 @@ import java.util.List;
  * @author hdgaadd
  * Created on 2022/06/12
  *
- * @Description: Z_task_ans中的非F行，移动到最前，实现任务提醒，个人使用
+ * @Description： Z_task_ans中的非F行，移动到最前，实现任务提醒，个人使用
  *
- * 设计思路: 如果上面有空行则进行匹配为一行，后续打印需打印空行
+ * 设计思路：如果上面有空行则进行匹配为一行，后续打印需打印空行
  *
- * 注意事项:
+ * 注意事项：
  * 1.确保最后一行空行俩行，原因为没处理最后一行的情况
  * 2.两个TaskMovement的区别，只是其中一个没有"package com.codeman.FILE.TaskMovement;"，且PROJECT_PATH不同
  *
- * bugs:
+ * bugs：
  * 1.F后面有空格会导致F不被识别
- * 2.'退出PC登录个人账户' ，为什么在F下，原因为与前一行合为同一个行
+ * 2.退出PC登录个人账户 ，为什么在F下，原因为与前一行合为同一个行
  */
-@Slf4j
-public class App {
+
+public class y_mv {
     /**
      * 待完成任务
      */
@@ -35,8 +30,10 @@ public class App {
      */
     private static final List<String> DONE = new ArrayList<>();
 
+    private static final String PATH = System.getProperty("user.dir") + "\\z-task-ans.txt";
+
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = Address.getReader(App.class)) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(PATH), StandardCharsets.UTF_8))) {
             StringBuilder sb = new StringBuilder();
             String preLine = "";
             String curLine;
@@ -53,9 +50,8 @@ public class App {
                     }
                 }
             }
-            log.info("读取文件时，读取到的任务字符数为: " + sb.length());
+            System.out.println("读取文件时，读取到的任务字符数为：" + sb.length());
         }
-//        printTaskLine();
         generateFile();
     }
 
@@ -75,6 +71,7 @@ public class App {
                 return;
             }
         }
+
         UNDONE.add(taskStr);
     }
 
@@ -82,7 +79,7 @@ public class App {
      * 生成文件
      */
     private static void generateFile() throws IOException {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(Address.returnRunAddress(App.class))), StandardCharsets.UTF_8))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(PATH)), StandardCharsets.UTF_8))) {
             StringBuilder sb = new StringBuilder();
             UNDONE.forEach(item -> {
                 sb.append(item);
@@ -102,26 +99,8 @@ public class App {
                     e.printStackTrace();
                 }
             });
-            log.info("生成文件时，读取到的任务字符数为: " + sb.length());
+            System.out.println("生成文件时，读取到的任务字符数为：" + sb.length());
         }
     }
 
-    /**
-     * print
-     */
-    private static void printTaskLine() {
-        UNDONE.forEach(item -> {
-            System.out.println("\n");
-            System.out.println(item);
-            System.out.println("\n");
-        });
-
-        log.info("=============================");
-
-        DONE.forEach(item -> {
-            System.out.println("\n");
-            System.out.println(item);
-            System.out.println("\n");
-        });
-    }
 }

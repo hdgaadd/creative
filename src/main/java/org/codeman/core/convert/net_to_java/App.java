@@ -16,7 +16,7 @@ import java.util.Map;
  *
  * @Description: .NET -> Java
  *
- * 设计思路: 去除不期望的 -> 缓存字段注释 -> 内容替换，添加@JsonProperty，添加缓存字段注释，添加变量声明
+ * 设计思路: 去除不期望的 -> 缓存字段注释 -> 内容替换、添加@JsonProperty、添加缓存字段注释、添加变量声明
  */
 @Slf4j
 public class App {
@@ -71,7 +71,6 @@ public class App {
                 // 3.内容替换、添加@JsonProperty、添加缓存字段注释、添加变量声明
                 handleReplaceContent(curLine, isUnexpected, isFieldName, curFieldCommentBuilder);
             }
-
             System.out.println(BASE_BUILDER);
         }
         // 变量个数对比

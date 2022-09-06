@@ -47,7 +47,6 @@ public final class Address {
         // 主包名
         int firstIndex = objPath.lastIndexOf("core");
         int endIndex = objPath.lastIndexOf(".");
-
         return PROJECT_PATH + "\\src\\main\\java\\org\\codeman\\" + objPath.substring(firstIndex, endIndex).replace(".", "\\") + "\\" + FILE_NAME;
     }
 
@@ -91,5 +90,4 @@ public final class Address {
         }
         return fileStr;
     }
-
 }
