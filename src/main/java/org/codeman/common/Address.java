@@ -39,10 +39,10 @@ public final class Address {
     }
 
     /**
-     * @param
+     * @param clazz
      * @return 执行文件地址
      */
-    public static String returnRunAddress(Class clazz) {
+    public static String returnRunAddress(Class<?> clazz) {
         String objPath = clazz.getName();
         // 主包名
         int firstIndex = objPath.lastIndexOf("core");
@@ -51,12 +51,12 @@ public final class Address {
     }
 
     /**
-     * @param newFileName
+     * @param newName 新的执行文件名
      * @param clazz
      * @return 执行文件地址
      */
-    public static String nameAndAddress(String newFileName, Class clazz) {
-        FILE_NAME = newFileName;
+    public static String nameAndAddress(String newName, Class<?> clazz) {
+        FILE_NAME = newName;
         return returnRunAddress(clazz);
     }
 
@@ -65,7 +65,7 @@ public final class Address {
      * @return BufferedReader执行对象
      * @throws IOException
      */
-    public static BufferedReader getReader(Class clazz) throws IOException {
+    public static BufferedReader getReader(Class<?> clazz) throws IOException {
         return new BufferedReader(new InputStreamReader(new FileInputStream(returnRunAddress(clazz)), StandardCharsets.UTF_8));
     }
 
@@ -80,7 +80,7 @@ public final class Address {
      * @param clazz
      * @return 文件String格式
      */
-    public static String readFileToString(Class clazz, String fileName) {
+    public static String readFileToString(Class<?> clazz, String fileName) {
         FILE_NAME = fileName;
         String fileStr = null;
         try {
