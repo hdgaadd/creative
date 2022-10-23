@@ -2,8 +2,9 @@ package org.codeman.core.generate.entity;
 
 /**
  * @author hdgaadd
- * Created on 2022/07/02
- * @Description: 根据建表语句，生成实体类
+ * created on 2022/07/02
+ *
+ * @description: 根据建表语句，生成实体类
  *
  * 查询建表语句: SHOW CREATE TABLE 表名
  */

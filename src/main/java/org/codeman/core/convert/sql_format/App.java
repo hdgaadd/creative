@@ -4,9 +4,9 @@ import org.codeman.common.Address;
 
 /**
  * @author hdgaadd
- * Created on 2022/07/26
+ * created on 2022/07/26
  *
- * @Description: 自定义格式化SQL
+ * @description: 自定义格式化SQL
  *
  * 设计思路: 确认select、from、where各自的范围下标 -> 确认select、from、where各自的字符串 -> 格式化
  */

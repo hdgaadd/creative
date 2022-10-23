@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * @author hdgaadd
- * Created on 2022/06/28
+ * created on 2022/06/28
  *
- * @Description:  typing所需，打印出存在" "的行
+ * @description: typing所需，打印出存在" "的行
  *
  * typing地址:  https://10fastfingers.com/widgets/typingtest
  */

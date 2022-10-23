@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Created by hdgaadd on 2021/12/06/18:25
+ * created by hdgaadd on 2021/12/06/18:25
  *
- * @Description: 识图取字 -> 翻译 -> 创建VO
+ * @description: 识图取字 -> 翻译 -> 创建VO
  */
 @Slf4j
 public class App {

@@ -17,7 +17,7 @@ import java.util.*;
 
 /**
  * @author hdgaadd
- * Created on 2022/06/20
+ * created on 2022/06/20
  */
 public class Translator {
     private static final String GOOGLE_PATH = "https://translate.googleapis.com/translate_a/single";

@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author hdgaadd
- * Created on 2022/07/30
+ * created on 2022/07/30
  *
  * 设计: 生成中文和添加"_"的英文映射Map -> 创建表
  */
@@ -21,19 +21,16 @@ public class App {
         /**
          * 表字段注释
          */
-        public String strOne = "序号, 名称";
+        public String strOne =
+                "序号\n" +
+                "名称";
         /**
          * 表字段名
          */
-        public String strTwo = "id, name";
+        public String strTwo =
+                "id\n" +
+                "name";
     }
-    /**
-     * SQL参考模板
-     */
-    private static final String SQL_EXAMPLE = "CREATE TABLE `test`  (\n" +
-            "  `id` int(11) NOT NULL COMMENT '序号',\n" +
-            "  `comments` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '测试字段',\n" +
-            ") ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '测试表' ROW_FORMAT = Dynamic;";
     /**
      * 表名
      */
@@ -86,8 +83,8 @@ public class App {
         String first = example.getStrOne();
         String second = example.getStrTwo();
         Map<String, String> mapping = new LinkedHashMap<>();
-        String[] firstArr = splitStr(first, ", "); // 以", "结尾，而不是","
-        String[] secondArr = splitStr(second, ", ");
+        String[] firstArr = splitStr(first, "\n"); // 以", "结尾，而不是","
+        String[] secondArr = splitStr(second, "\n");
 
         log.info("原xsl的字段个数为: " + firstArr.length);
         for (int i = 0; i < firstArr.length; i++) {

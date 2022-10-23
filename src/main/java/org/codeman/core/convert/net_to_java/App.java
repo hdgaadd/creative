@@ -12,9 +12,9 @@ import java.util.Map;
 
 /**
  * @author hdgaadd
- * Created on 2022/06/25
+ * created on 2022/06/25
  *
- * @Description: .NET -> Java
+ * @description: .NET -> Java
  *
  * 设计思路: 去除不期望的 -> 缓存字段注释 -> 内容替换、添加@JsonProperty、添加缓存字段注释、添加变量声明
  */

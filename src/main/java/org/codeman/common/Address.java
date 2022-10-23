@@ -7,9 +7,9 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * @author hdgaadd
- * Created on 2022/07/02
+ * created on 2022/07/02
  *
- * @Description: 传递执行文件Class对象 -> 返回源文件地址
+ * @description: 传递执行文件Class对象 -> 返回源文件地址
  */
 public final class Address {
     /**

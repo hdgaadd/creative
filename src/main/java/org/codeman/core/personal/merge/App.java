@@ -4,9 +4,9 @@ import java.io.*;
 
 /**
  * @author hdgaadd
- * Created on 2022/04/12
+ * created on 2022/04/12
  *
- * @Description: 合并大量文件，使用Notepad++进行快速查找
+ * @description: 合并大量文件，使用Notepad++进行快速查找
  */
 public class App {
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 
 /**
  * @author hdgaadd
- * Created on 2022/07/25
+ * created on 2022/07/25
  */
 public class APP {
     public static void main(String[] args) {
