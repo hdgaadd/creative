@@ -6,7 +6,7 @@ import org.codeman.common.Address;
  * @author hdgaadd
  * created on 2022/07/26
  *
- * @description: 自定义格式化SQL
+ * description: 自定义格式化SQL
  *
  * 设计思路: 确认select、from、where各自的范围下标 -> 确认select、from、where各自的字符串 -> 格式化
  */
@@ -51,7 +51,7 @@ public class App {
         // add others
         String[] others = SELECT_STR.substring(selectIndex).split(",");
         for (int i = 0; i < others.length; i++) {
-            BUILDER.append(others[i].replaceAll("\\s*", ""));
+            BUILDER.append(others[i].replaceAll(    "\\s*", ""));
             if (i != others.length - 1) {
                 BUILDER.append(",");
             }

@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author hdgaadd
  * created on 2022/09/18
  *
- * @description: excel转换为String，打印出包含关键字符串的行
+ * description: excel转换为String，打印出包含关键字符串的行
  */
 public class App {
 

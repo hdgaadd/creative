@@ -11,7 +11,7 @@ import java.util.Scanner;
 /**
  * created by hdgaadd on 2021/12/06/18:25
  *
- * @description: 识图取字 -> 翻译 -> 创建VO
+ * description: 识图取字 -> 翻译 -> 创建VO
  */
 @Slf4j
 public class App {
