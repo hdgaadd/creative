@@ -35,7 +35,7 @@ public class App {
 
             MESSAGE_ARR = MESSAGE.split("\n");
             // translate
-            TRANSLATE_ARR = handleTranslateArr(Translator.getInstance().translateText(MESSAGE, "auto", "en").split("\n"));
+            TRANSLATE_ARR = handleTranslateArr(GoogleTranslate.getInstance().translateText(MESSAGE, "auto", "en").split("\n"));
         } catch (Exception e) {
             e.printStackTrace();
         }
