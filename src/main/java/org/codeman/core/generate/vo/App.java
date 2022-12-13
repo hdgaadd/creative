@@ -72,10 +72,8 @@ public class App {
     }
 
     /**
-     * 转换为驼峰式写法
-     *
      * @param translateArr
-     * @return
+     * @return 驼峰式写法
      */
     private static String[] handleTranslateArr(String[] translateArr) {
         for (int i = 0; i < translateArr.length; i++) {

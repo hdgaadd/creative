@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author hdgaadd
  * created on 2022/07/30
  *
- * 设计: 生成中文和添加"_"的英文映射Map -> 创建表
+ * design: 生成中文和添加"_"的英文映射Map -> 创建表
  */
 @Slf4j
 public class App {
@@ -45,9 +45,7 @@ public class App {
     private static final StringBuilder BUILDER = new StringBuilder();
 
     public static void main(String[] args) {
-        // 生成中文和添加"_"的英文映射Map
         Map<String, String> mapping = generateMapping(new Example());
-        // 创建表
         tableCreate(mapping);
         System.out.println(BUILDER);
     }
@@ -110,18 +108,18 @@ public class App {
      * @return 第一个字符串转换为小写，并添加"_"
      */
     private static String transform(String str) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         String[] arr = str.split(" ");
         AtomicInteger index = new AtomicInteger(0);
         Arrays.stream(arr).forEach(item -> {
             if (index.get() == 0) {
-                sb.append(item.toLowerCase());
+                builder.append(item.toLowerCase());
                 index.getAndAdd(1);
             } else {
-                sb.append("_");
-                sb.append(item.toLowerCase());
+                builder.append("_");
+                builder.append(item.toLowerCase());
             }
         });
-        return sb.toString();
+        return builder.toString();
     }
 }

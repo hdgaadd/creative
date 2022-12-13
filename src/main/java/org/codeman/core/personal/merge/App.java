@@ -28,7 +28,7 @@ public class App {
             String line;
             while ((line = reader.readLine()) != null) {
                 writer.write(line);
-                writer.newLine(); // 写一行分隔符？？
+                writer.newLine();
             }
             reader.close();
         }

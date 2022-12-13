@@ -16,7 +16,7 @@ import java.util.Map;
  *
  * description: .NET -> Java
  *
- * 设计思路: 去除不期望的 -> 缓存字段注释 -> 内容替换、添加@JsonProperty、添加缓存字段注释、添加变量声明
+ * design: 去除不期望的 -> 缓存字段注释 -> 内容替换、添加@JsonProperty、添加缓存字段注释、添加变量声明
  */
 @Slf4j
 public class App {
@@ -49,13 +49,9 @@ public class App {
      * a bean called StringBuilder
      */
     private static final StringBuilder BASE_BUILDER = new StringBuilder();
-    /**
-     * 生成的变量个数
-     */
+
     private static int generateKeyword = 0;
-    /**
-     * 实际的变量个数
-     */
+
     private static int realKeyword = 0;
 
     public static void main(String[] args) throws IOException {
@@ -64,18 +60,15 @@ public class App {
             // 缓存字段注释，让@JsonProperty在注释前面
             StringBuilder curFieldCommentBuilder = new StringBuilder();
             while ((curLine = bufferedReader.readLine()) != null) {
-                // 1.去除不期望的
                 boolean isUnexpected = handleUnexpected(curLine);
-                // 2.缓存字段注释
                 boolean isFieldName = cacheFieldName(curLine, isUnexpected, curFieldCommentBuilder);
-                // 3.内容替换、添加@JsonProperty、添加缓存字段注释、添加变量声明
                 handleReplaceContent(curLine, isUnexpected, isFieldName, curFieldCommentBuilder);
             }
             System.out.println(BASE_BUILDER);
         }
-        // 变量个数对比
+
         documentScanning();
-        log.info("以';'计数，生成的变量个数{}；以'get和set'计数，实际的变量个数: {}", generateKeyword, realKeyword);
+        log.info("以';'计数，生成的变量个数{} ; 以'get和set'计数，实际的变量个数: {}", generateKeyword, realKeyword);
     }
 
     /**
@@ -96,7 +89,7 @@ public class App {
      * 1.去除不期望的
      *
      * @param curLine
-     * @return 是否该curLine执行了该操作: 去除不期望的
+     * @return
      */
     private static boolean handleUnexpected(String curLine) {
         // 执行第1步
@@ -114,7 +107,7 @@ public class App {
      * @param curLine
      * @param isUnexpected
      * @param curFieldNameBuilder
-     * @return 是否该curLine执行了该操作: 缓存缓存字段注释
+     * @return
      */
     private static boolean cacheFieldName(String curLine, boolean isUnexpected, StringBuilder curFieldNameBuilder) {
         // 第1步不执行，才执行2

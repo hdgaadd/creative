@@ -25,7 +25,7 @@ public final class Address {
      */
     private static final String SOURCE_PATH = PROJECT_PATH + FILE_NAME;
     /**
-     * 单例
+     * instance
      */
     private static Address _INSTANCE = null;
 

@@ -13,7 +13,7 @@ import java.util.List;
  *
  * description: DO -> BO
  *
- * 设计思路: 读取每一行，剔除不希望的
+ * design: 读取每一行，剔除不希望的
  */
 public class App {
     /**
@@ -40,7 +40,7 @@ public class App {
     private static void handleEveryLine() throws IOException {
         try (BufferedReader bufferedReader = Address.getReader(App.class)) {
             String curLine;
-            int lineIndex = 0; // 第一个注释不换行
+            int lineIndex = 0;
 
             while ((curLine = bufferedReader.readLine()) != null) {
                 // 若是注释，设置StringBuilder不进行添加
