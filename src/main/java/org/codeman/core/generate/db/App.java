@@ -93,10 +93,8 @@ public class App {
     }
 
     /**
-     * 字符串以什么分割
-     *
      * @param str
-     * @param point
+     * @param point 字符串以什么分割
      * @return
      */
     private static String[] splitStr(String str, String point) {

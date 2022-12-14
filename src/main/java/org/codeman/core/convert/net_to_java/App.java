@@ -59,6 +59,7 @@ public class App {
             String curLine;
             // 缓存字段注释，让@JsonProperty在注释前面
             StringBuilder curFieldCommentBuilder = new StringBuilder();
+
             while ((curLine = bufferedReader.readLine()) != null) {
                 boolean isUnexpected = handleUnexpected(curLine);
                 boolean isFieldName = cacheFieldName(curLine, isUnexpected, curFieldCommentBuilder);
@@ -132,6 +133,7 @@ public class App {
     private static void handleReplaceContent(String curLine, boolean isUnexpected, boolean isFieldName, StringBuilder curFieldNameBuilder) {
         // 该curBuilder可以让@JsonProperty添加、缓存字段注释添加，在字段声明前
         StringBuilder curBuilder = new StringBuilder();
+
         // 第1、2步不执行，才执行3
         if (!isUnexpected && !isFieldName) {
             // 只需要替换两个
@@ -175,15 +177,14 @@ public class App {
      */
     private static String handleFieldComment(String lineUnit, StringBuilder curFieldNameBuilder) {
         char[] lineArr = lineUnit.toCharArray();
-        // 是否首字符大写
         boolean isUpperCase = lineArr[0] < 'a';
         String result;
+
         if (!isUpperCase) {
             result = lineUnit;
         } else {
             // 添加@JsonProperty
             BASE_BUILDER.append("    @JsonProperty(\"").append(lineUnit).append("\")").append("\r\n");
-            // 返回驼峰式变量名
             lineArr[0] = Character.toLowerCase(lineArr[0]);
             result =  String.valueOf(lineArr);
         }

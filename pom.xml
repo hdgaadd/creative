@@ -14,7 +14,6 @@
     </properties>
 
     <dependencies>
-        <!-- 常用 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -30,13 +29,12 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
-        <!-- io -->
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version>
         </dependency>
-        <!-- excel -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
@@ -53,6 +51,8 @@
             <artifactId>fastjson</artifactId>
             <version>2.0.7</version>
         </dependency>
+
+        <!-- 阿里云翻译 -->
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>alimt20181012</artifactId>

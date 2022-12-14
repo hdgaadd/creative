@@ -1,10 +1,10 @@
 # creative
 ```lua
 creative
-├── common -- 公共
+├── common
 └── core
      ├── convert -- 格式转换
-          ├── do_to_bo -- DO转换BO
+          ├── do_to_bo -- DO转换为BO
           ├── net_to_java -- .NET转换为Java
           └── sql_format -- 格式化SQL
      ├── generate -- 文件生成
