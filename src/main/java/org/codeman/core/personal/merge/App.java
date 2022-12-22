@@ -11,14 +11,13 @@ import java.io.*;
 public class App {
 
     public static void main(String[] args) throws IOException {
-        // 先得到当前工程目录
         String projectPath = System.getProperty("user.dir");
 
         // 输出文件
         String FileOut = projectPath + "\\output.txt";
-        BufferedWriter writer = new BufferedWriter(new FileWriter(FileOut)); // 输入流
+        BufferedWriter writer = new BufferedWriter(new FileWriter(FileOut));
 
-        // 输入文件
+        // 输入源
         String folderName = projectPath + "\\folder\\";
         File file = new File(folderName);
         File[] files = file.listFiles();

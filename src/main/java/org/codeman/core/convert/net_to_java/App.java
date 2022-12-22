@@ -20,9 +20,7 @@ import java.util.Map;
  */
 @Slf4j
 public class App {
-    /**
-     * 不期望出现的
-     */
+
     private static final List<String> UNEXPECTED = new ArrayList<String>() {{
         add("/// <summary>");
         add("///<summary>");
@@ -34,9 +32,7 @@ public class App {
         add("using");
         add("namespace");
     }};
-    /**
-     * 内容替换Map
-     */
+
     private static final Map<String, String> REPLACE_MAP = new HashMap<String, String>(){{
         put("int", "Integer");
         put("string", "String");
@@ -45,9 +41,7 @@ public class App {
         put("bool", "Boolean");
         put("string[]", "String[]");
     }};
-    /**
-     * a bean called StringBuilder
-     */
+
     private static final StringBuilder BASE_BUILDER = new StringBuilder();
 
     private static int generateKeyword = 0;

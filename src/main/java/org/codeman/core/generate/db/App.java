@@ -31,17 +31,11 @@ public class App {
                 "id\n" +
                 "name";
     }
-    /**
-     * 表名
-     */
+
     private static final String TABLE_NAME = "test";
-    /**
-     * 表注释
-     */
+
     private static final String TABLE_COMMENT = "测试表";
-    /**
-     * a bean called BUILDER
-     */
+
     private static final StringBuilder BUILDER = new StringBuilder();
 
     public static void main(String[] args) {

@@ -18,13 +18,9 @@ import java.util.List;
  */
 @Slf4j
 public class App {
-    /**
-     * 待完成任务
-     */
+
     private static final List<String> UNDONE = new ArrayList<>();
-    /**
-     * 已完成任务
-     */
+
     private static final List<String> DONE = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {

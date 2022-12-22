@@ -16,9 +16,7 @@ import java.util.List;
  * design: 读取每一行，剔除不希望的
  */
 public class App {
-    /**
-     * 不期望出现的
-     */
+
     private static final List<String> UNEXPECTED = new ArrayList<String>(){{
         add("/**");
         add("* ");
@@ -27,9 +25,7 @@ public class App {
         add("@TableField");
         add("@TableId(type = IdType.AUTO)");
     }};
-    /**
-     * BUILDER
-     */
+
     private static final StringBuilder BUILDER = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
@@ -45,11 +41,10 @@ public class App {
             while ((curLine = bufferedReader.readLine()) != null) {
                 // 若是注释，设置StringBuilder不进行添加
                 boolean isUnexpected = false;
+
                 for (String detail : UNEXPECTED) {
                     if (curLine.contains(detail)) {
-                        // 若是注释末尾，换行
                         if (detail.equals("*/")) {
-                            // 第一个注释不换行
                             if (lineIndex++ != 0) BUILDER.append("\r\n");
                         }
                         isUnexpected = true;

@@ -12,21 +12,13 @@ import java.nio.charset.StandardCharsets;
  * description: 传递执行文件Class对象 -> 返回源文件地址
  */
 public final class Address {
-    /**
-     * 源文件名
-     */
-    private static String FILE_NAME = "FILE";
-    /**
-     * 项目地址
-     */
+
+    private static String SOURCE_NAME = "FILE";
+
     private static final String PROJECT_PATH = System.getProperty("user.dir");
-    /**
-     * 源文件地址 == 项目地址 + 源文件名
-     */
-    private static final String SOURCE_PATH = PROJECT_PATH + FILE_NAME;
-    /**
-     * instance
-     */
+
+    private static final String SOURCE_PATH = PROJECT_PATH + SOURCE_NAME;
+
     private static Address _INSTANCE = null;
 
     private Address() { }
@@ -47,7 +39,7 @@ public final class Address {
         // 主包名
         int firstIndex = objPath.lastIndexOf("core");
         int endIndex = objPath.lastIndexOf(".");
-        return PROJECT_PATH + "\\src\\main\\java\\org\\codeman\\" + objPath.substring(firstIndex, endIndex).replace(".", "\\") + "\\" + FILE_NAME;
+        return PROJECT_PATH + "\\src\\main\\java\\org\\codeman\\" + objPath.substring(firstIndex, endIndex).replace(".", "\\") + "\\" + SOURCE_NAME;
     }
 
     /**
@@ -56,7 +48,7 @@ public final class Address {
      * @return 执行文件地址
      */
     public static String nameAndAddress(String newName, Class<?> clazz) {
-        FILE_NAME = newName;
+        SOURCE_NAME = newName;
         return returnRunAddress(clazz);
     }
 
@@ -81,7 +73,7 @@ public final class Address {
      * @return 文件String格式
      */
     public static String readFileToString(Class<?> clazz, String fileName) {
-        FILE_NAME = fileName;
+        SOURCE_NAME = fileName;
         String fileStr = null;
         try {
             fileStr = FileUtils.readFileToString(new File(returnRunAddress(clazz)), StandardCharsets.UTF_8).replace("\r\n", " ");;
