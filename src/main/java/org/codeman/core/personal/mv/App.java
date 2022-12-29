@@ -12,7 +12,7 @@ import java.util.List;
  * @author hdgaadd
  * created on 2022/06/12
  *
- * description: Z_task_ans中的非F行，移动到最前，实现任务提醒，个人使用
+ * description: FILE中的非F行，移动到最前，实现任务提醒，个人使用
  *
  * design: 如果上面有空行则进行匹配为一行，后续打印需打印空行
  */
@@ -25,11 +25,12 @@ public class App {
 
     public static void main(String[] args) throws IOException {
         try (BufferedReader bufferedReader = Address.getReader(App.class)) {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder builder = new StringBuilder();
             String preLine = "";
             String curLine;
+
             while ((curLine = bufferedReader.readLine()) != null) {
-                sb.append(curLine);
+                builder.append(curLine);
                 if (preLine.equals("") || preLine.equals(" ") || preLine.equals("  ")) { // 上层为空行，则开始
                     preLine = curLine;
                 } else { // 否则则添加行，或者结束
@@ -41,7 +42,7 @@ public class App {
                     }
                 }
             }
-            log.info("读取文件时，读取到的任务字符数为: " + sb.length());
+            log.info("读取文件时，读取到的任务字符数为: " + builder.length());
         }
 
         generateFile();
@@ -49,8 +50,6 @@ public class App {
 
     /**
      * 存储任务行
-     *
-     * @param taskStr
      */
     private static void handleTaskSave(String taskStr){
         String[] taskLines = taskStr.split("\n");
@@ -70,10 +69,10 @@ public class App {
      * 生成文件
      */
     private static void generateFile() throws IOException {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(Address.returnRunAddress(App.class))), StandardCharsets.UTF_8))) {
-            StringBuilder sb = new StringBuilder();
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(Address.getRunAddress(App.class))), StandardCharsets.UTF_8))) {
+            StringBuilder builder = new StringBuilder();
             UNDONE.forEach(item -> {
-                sb.append(item);
+                builder.append(item);
                 try {
                     bufferedWriter.write(item);
                     bufferedWriter.write("\n\r");
@@ -82,7 +81,7 @@ public class App {
                 }
             });
             DONE.forEach(item -> {
-                sb.append(item);
+                builder.append(item);
                 try {
                     bufferedWriter.write(item);
                     bufferedWriter.write("\n\r");
@@ -90,7 +89,7 @@ public class App {
                     e.printStackTrace();
                 }
             });
-            log.info("生成文件时，读取到的任务字符数为: " + sb.length());
+            log.info("生成文件时，读取到的任务字符数为: " + builder.length());
         }
     }
 

@@ -19,7 +19,8 @@ import java.util.*;
  * @author hdgaadd
  * created on 2022/06/20
  */
-public class GoogleTranslate {
+public class GoogleTranslator {
+    
     private static final String GOOGLE_PATH = "https://translate.googleapis.com/translate_a/single";
 
     private static final String CLIENT = "gtx";
@@ -28,7 +29,7 @@ public class GoogleTranslate {
 
     private static final Map<String, String> LANGUAGE_MAP = new HashMap();
 
-    private static GoogleTranslate _INSTANCE = null;
+    private static GoogleTranslator _INSTANCE = null;
 
     /**
      * 初始化语言类
@@ -146,9 +147,9 @@ public class GoogleTranslate {
      *
      * @return
      */
-    public static GoogleTranslate getInstance() {
+    public static GoogleTranslator getInstance() {
         if (null == _INSTANCE) {
-            _INSTANCE = new GoogleTranslate();
+            _INSTANCE = new GoogleTranslator();
             _INSTANCE.init();
         }
         return _INSTANCE;

@@ -12,7 +12,7 @@ import java.io.IOException;
  *
  * description: typing所需，打印出存在" "的行
  *
- * typing地址:  https://10fastfingers.com/widgets/typingtest
+ * typing地址: https://10fastfingers.com/widgets/typingtest
  */
 @Slf4j
 public class App {

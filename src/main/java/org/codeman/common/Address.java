@@ -34,7 +34,7 @@ public final class Address {
      * @param clazz
      * @return 执行文件地址
      */
-    public static String returnRunAddress(Class<?> clazz) {
+    public static String getRunAddress(Class<?> clazz) {
         String objPath = clazz.getName();
         // 主包名
         int firstIndex = objPath.lastIndexOf("core");
@@ -49,7 +49,7 @@ public final class Address {
      */
     public static String nameAndAddress(String newName, Class<?> clazz) {
         SOURCE_NAME = newName;
-        return returnRunAddress(clazz);
+        return getRunAddress(clazz);
     }
 
     /**
@@ -58,7 +58,7 @@ public final class Address {
      * @throws IOException
      */
     public static BufferedReader getReader(Class<?> clazz) throws IOException {
-        return new BufferedReader(new InputStreamReader(new FileInputStream(returnRunAddress(clazz)), StandardCharsets.UTF_8));
+        return new BufferedReader(new InputStreamReader(new FileInputStream(getRunAddress(clazz)), StandardCharsets.UTF_8));
     }
 
     /**
@@ -76,7 +76,7 @@ public final class Address {
         SOURCE_NAME = fileName;
         String fileStr = null;
         try {
-            fileStr = FileUtils.readFileToString(new File(returnRunAddress(clazz)), StandardCharsets.UTF_8).replace("\r\n", " ");;
+            fileStr = FileUtils.readFileToString(new File(getRunAddress(clazz)), StandardCharsets.UTF_8).replace("\r\n", " ");;
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -10,19 +10,17 @@ import java.io.*;
  */
 public class App {
 
+    private static final String PATH = System.getProperty("user.dir") + "\\src\\main\\java\\org\\codeman\\core\\personal\\merge\\source\\";
+
+    private static final String FILE_OUT = System.getProperty("user.dir") + "\\src\\main\\java\\org\\codeman\\core\\personal\\merge\\PRODUCT.txt";
+
     public static void main(String[] args) throws IOException {
-        String projectPath = System.getProperty("user.dir");
-
-        // 输出文件
-        String FileOut = projectPath + "\\output.txt";
-        BufferedWriter writer = new BufferedWriter(new FileWriter(FileOut));
-
-        // 输入源
-        String folderName = projectPath + "\\folder\\";
-        File file = new File(folderName);
+        File file = new File(PATH);
         File[] files = file.listFiles();
 
-        for (File curFile: files) {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_OUT));
+
+        for (File curFile : files) {
             BufferedReader reader = new BufferedReader(new FileReader(curFile));
             String line;
             while ((line = reader.readLine()) != null) {
