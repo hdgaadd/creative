@@ -1,6 +1,6 @@
-package org.codeman.core.convert.do_to_bo;
+package org.codeman.core.convert.bo;
 
-import org.codeman.common.Address;
+import org.codeman.common.AddressUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class App {
     }
 
     private static void handleEveryLine() throws IOException {
-        try (BufferedReader bufferedReader = Address.getReader(App.class)) {
+        try (BufferedReader bufferedReader = AddressUtil.getFileReader(App.class)) {
             String curLine;
             int lineIndex = 0;
 

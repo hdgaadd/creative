@@ -1,4 +1,4 @@
-package org.codeman.core.generate.db;
+package org.codeman.core.generate.sql;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

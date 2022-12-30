@@ -1,7 +1,7 @@
 package org.codeman.core.generate.vo;
 
 import lombok.extern.slf4j.Slf4j;
-import org.codeman.common.Address;
+import org.codeman.common.AddressUtil;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -20,7 +20,7 @@ public class App {
     /**
      * VO变量注释
      */
-    private static final String MESSAGE = Address.readFileToString(App.class, "MESSAGE").replace(" ", "\n");
+    private static final String MESSAGE = AddressUtil.getFileString(App.class, "MESSAGE").replace(" ", "\n");
     /**
      * 单词间间隔符号
      */
@@ -44,7 +44,7 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        boolean createResult = createFile(new File(Address.nameAndAddress("VO", App.class)), createVo());
+        boolean createResult = createFile(new File(AddressUtil.getFileAddress("VO", App.class)), createVo());
         log.info(createResult ? "======创建VO成功======" : "======创建VO失败======");
     }
 
@@ -66,10 +66,10 @@ public class App {
      * @param context 文件里面的内容
      */
     private static boolean createFile(File file, String context) throws IOException{
-        FileWriter fileWriter = new FileWriter(file);
-        fileWriter.write(context);
-        fileWriter.flush();
-        fileWriter.close();
+        FileWriter writer = new FileWriter(file);
+        writer.write(context);
+        writer.flush();
+        writer.close();
         return true;
     }
 
@@ -81,18 +81,18 @@ public class App {
         for (int i = 0; i < translateArr.length; i++) {
             String[] curArr = translateArr[i].split(" ");
 
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder builder = new StringBuilder();
             for (int j = 0; j < curArr.length; j++) {
                 String curStr = curArr[j];
                 if (j == 0) {
-                    stringBuilder.append(curStr.toLowerCase());
+                    builder.append(curStr.toLowerCase());
                 } else {
                     char[] curStrArr = curStr.toCharArray();
                     curStrArr[0] = Character.toUpperCase(curStrArr[0]);
-                    stringBuilder.append(INTERVAL + String.valueOf(curStrArr));
+                    builder.append(INTERVAL + String.valueOf(curStrArr));
                 }
             }
-            translateArr[i] = String.valueOf(stringBuilder);
+            translateArr[i] = String.valueOf(builder);
         }
         return translateArr;
     }

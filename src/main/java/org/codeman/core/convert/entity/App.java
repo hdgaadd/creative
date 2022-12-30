@@ -1,7 +1,7 @@
-package org.codeman.core.convert.net_to_java;
+package org.codeman.core.convert.entity;
 
 import lombok.extern.slf4j.Slf4j;
-import org.codeman.common.Address;
+import org.codeman.common.AddressUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -49,7 +49,7 @@ public class App {
     private static int realKeyword = 0;
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = Address.getReader(App.class)) {
+        try (BufferedReader bufferedReader = AddressUtil.getFileReader(App.class)) {
             String curLine;
             // 缓存字段注释，让@JsonProperty在注释前面
             StringBuilder curFieldCommentBuilder = new StringBuilder();
@@ -72,7 +72,7 @@ public class App {
      * @throws IOException
      */
     private static void documentScanning() throws IOException{
-        try (BufferedReader bufferedReader = Address.getReader(App.class)) {
+        try (BufferedReader bufferedReader = AddressUtil.getFileReader(App.class)) {
             String curLine;
             while ((curLine = bufferedReader.readLine()) != null) {
                 if (curLine.contains("get") && curLine.contains("set")) realKeyword++;

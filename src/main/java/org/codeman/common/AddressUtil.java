@@ -8,24 +8,20 @@ import java.nio.charset.StandardCharsets;
 /**
  * @author hdgaadd
  * created on 2022/07/02
- *
- * description: 传递执行文件Class对象 -> 返回源文件地址
  */
-public final class Address {
+public final class AddressUtil {
 
     private static String SOURCE_NAME = "FILE";
 
     private static final String PROJECT_PATH = System.getProperty("user.dir");
 
-    private static final String SOURCE_PATH = PROJECT_PATH + SOURCE_NAME;
+    private static AddressUtil _INSTANCE = null;
 
-    private static Address _INSTANCE = null;
+    private AddressUtil() { }
 
-    private Address() { }
-
-    public static Address getInstance() {
+    public static AddressUtil getInstance() {
         if (null == _INSTANCE) {
-            _INSTANCE = new Address();
+            _INSTANCE = new AddressUtil();
         }
         return _INSTANCE;
     }
@@ -34,7 +30,7 @@ public final class Address {
      * @param clazz
      * @return 执行文件地址
      */
-    public static String getRunAddress(Class<?> clazz) {
+    public static String getFileAddress(Class<?> clazz) {
         String objPath = clazz.getName();
         // 主包名
         int firstIndex = objPath.lastIndexOf("core");
@@ -47,9 +43,9 @@ public final class Address {
      * @param clazz
      * @return 执行文件地址
      */
-    public static String nameAndAddress(String newName, Class<?> clazz) {
+    public static String getFileAddress(String newName, Class<?> clazz) {
         SOURCE_NAME = newName;
-        return getRunAddress(clazz);
+        return getFileAddress(clazz);
     }
 
     /**
@@ -57,26 +53,19 @@ public final class Address {
      * @return BufferedReader执行对象
      * @throws IOException
      */
-    public static BufferedReader getReader(Class<?> clazz) throws IOException {
-        return new BufferedReader(new InputStreamReader(new FileInputStream(getRunAddress(clazz)), StandardCharsets.UTF_8));
-    }
-
-    /**
-     * @return 生成class文件地址
-     */
-    public static String getAddressOfClass() {
-        return SOURCE_PATH;
+    public static BufferedReader getFileReader(Class<?> clazz) throws IOException {
+        return new BufferedReader(new InputStreamReader(new FileInputStream(getFileAddress(clazz)), StandardCharsets.UTF_8));
     }
 
     /**
      * @param clazz
      * @return 文件String格式
      */
-    public static String readFileToString(Class<?> clazz, String fileName) {
+    public static String getFileString(Class<?> clazz, String fileName) {
         SOURCE_NAME = fileName;
         String fileStr = null;
         try {
-            fileStr = FileUtils.readFileToString(new File(getRunAddress(clazz)), StandardCharsets.UTF_8).replace("\r\n", " ");;
+            fileStr = FileUtils.readFileToString(new File(getFileAddress(clazz)), StandardCharsets.UTF_8).replace("\r\n", " ");;
         } catch (IOException e) {
             e.printStackTrace();
         }

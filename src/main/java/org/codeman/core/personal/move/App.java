@@ -1,7 +1,7 @@
-package org.codeman.core.personal.mv;
+package org.codeman.core.personal.move;
 
 import lombok.extern.slf4j.Slf4j;
-import org.codeman.common.Address;
+import org.codeman.common.AddressUtil;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -24,7 +24,7 @@ public class App {
     private static final List<String> DONE = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = Address.getReader(App.class)) {
+        try (BufferedReader bufferedReader = AddressUtil.getFileReader(App.class)) {
             StringBuilder builder = new StringBuilder();
             String preLine = "";
             String curLine;
@@ -69,7 +69,7 @@ public class App {
      * 生成文件
      */
     private static void generateFile() throws IOException {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(Address.getRunAddress(App.class))), StandardCharsets.UTF_8))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(AddressUtil.getFileAddress(App.class))), StandardCharsets.UTF_8))) {
             StringBuilder builder = new StringBuilder();
             UNDONE.forEach(item -> {
                 builder.append(item);

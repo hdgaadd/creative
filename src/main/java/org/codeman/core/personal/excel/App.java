@@ -4,7 +4,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.codeman.common.Address;
+import org.codeman.common.AddressUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class App {
 
-    private final static String PATH = Address.nameAndAddress("test.xlsx", App.class);
+    private final static String PATH = AddressUtil.getFileAddress("test.xlsx", App.class);
 
     private final static List<String> KEYWORD = new ArrayList<String>(){{
         add("A");

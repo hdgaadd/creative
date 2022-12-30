@@ -1,5 +1,7 @@
 package org.codeman.core.personal.merge;
 
+import org.codeman.common.AddressUtil;
+
 import java.io.*;
 
 /**
@@ -10,9 +12,9 @@ import java.io.*;
  */
 public class App {
 
-    private static final String PATH = System.getProperty("user.dir") + "\\src\\main\\java\\org\\codeman\\core\\personal\\merge\\source\\";
+    private static final String PATH = AddressUtil.getFileAddress("source\\", App.class);
 
-    private static final String FILE_OUT = System.getProperty("user.dir") + "\\src\\main\\java\\org\\codeman\\core\\personal\\merge\\PRODUCT.txt";
+    private static final String FILE_OUT = AddressUtil.getFileAddress("PRODUCT.txt", App.class);
 
     public static void main(String[] args) throws IOException {
         File file = new File(PATH);

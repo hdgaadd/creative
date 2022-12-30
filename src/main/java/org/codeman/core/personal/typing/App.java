@@ -38,19 +38,21 @@ public class App {
         while ((curLine = reader.readLine()) != null) {
             if (curLine.length() != 0) CODE_LINE_LIST.add(curLine);
         }
+        Collections.shuffle(CODE_LINE_LIST);
         CODE_LIST_SIZE = CODE_LINE_LIST.size();
     }
 
     private static void checkTyping() {
+        int typingCount = 0;
         while (true) {
-            int codeIndex = new Random().nextInt(CODE_LIST_SIZE);
-            String codeLine = CODE_LINE_LIST.get(codeIndex);
+            String codeLine = CODE_LINE_LIST.get(typingCount++);
             System.out.println(codeLine);
 
             String typingLine = scanner.nextLine();
+            WORD_SIZE += typingLine.length();
 
             // other check
-            if (typingLine.equals("break")) {
+            if (typingLine.equals("break") || typingCount == CODE_LIST_SIZE) {
                 statistics();
                 break;
             }
@@ -62,15 +64,16 @@ public class App {
                 ERROR_SIZE++;
                 System.out.println("false!");
             }
-            WORD_SIZE += typingLine.length();
         }
     }
 
     private static void statistics() {
+        double useMin = (double) (Duration.between(START_TIME, Instant.now()).toMillis()) / (60 * 1000);
         System.out.println(String.format(
                 "the correct number you entered is %d\r\n" +
                 "the error number you entered is %d\r\n" +
-                "your typing time is %.2fmin\r\n"
-                , RIGHT_SIZE, ERROR_SIZE, (double)(Duration.between(START_TIME, Instant.now()).toMillis()) / (60 * 1000)));
+                "your typing time is %.2fMIN\r\n" +
+                "your typing speed is %.0fWPM\r\n"
+                , RIGHT_SIZE, ERROR_SIZE, useMin, ((double)WORD_SIZE / 3 / useMin)));
     }
 }

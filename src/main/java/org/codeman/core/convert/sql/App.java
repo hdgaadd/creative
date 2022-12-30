@@ -1,6 +1,6 @@
-package org.codeman.core.convert.sql_format;
+package org.codeman.core.convert.sql;
 
-import org.codeman.common.Address;
+import org.codeman.common.AddressUtil;
 
 /**
  * @author hdgaadd
@@ -12,7 +12,7 @@ import org.codeman.common.Address;
  */
 public class App {
 
-    private static final String SQL_SOURCE = Address.readFileToString(App.class, "YOUR_SQL");
+    private static final String SQL_SOURCE = AddressUtil.getFileString(App.class, "YOUR_SQL");
 
     private static final StringBuilder BUILDER = new StringBuilder();
 
