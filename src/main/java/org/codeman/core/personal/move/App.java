@@ -24,12 +24,12 @@ public class App {
     private static final List<String> DONE = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = AddressUtil.getFileReader(App.class)) {
+        try (BufferedReader reader = AddressUtil.getFileReader(App.class)) {
             StringBuilder builder = new StringBuilder();
             String preLine = "";
             String curLine;
 
-            while ((curLine = bufferedReader.readLine()) != null) {
+            while ((curLine = reader.readLine()) != null) {
                 builder.append(curLine);
                 if (preLine.equals("") || preLine.equals(" ") || preLine.equals("  ")) { // 上层为空行，则开始
                     preLine = curLine;

@@ -9,16 +9,14 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * created by hdgaadd on 2021/12/06/18:25
+ * created by hdgaadd on 2021/12/06
  *
  * description: 识图取字 -> 翻译 -> 创建VO
- *
- * todo: GoogleTranslate doesn't work
  */
 @Slf4j
 public class App {
     /**
-     * VO变量注释
+     * MESSAGE里的VO变量注释
      */
     private static final String MESSAGE = AddressUtil.getFileString(App.class, "MESSAGE").replace(" ", "\n");
     /**
@@ -44,21 +42,21 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        boolean createResult = createFile(new File(AddressUtil.getFileAddress("VO", App.class)), createVo());
+        boolean createResult = createFile(new File(AddressUtil.getFileAddress("VO", App.class)), createVO());
         log.info(createResult ? "======创建VO成功======" : "======创建VO失败======");
     }
 
     /**
-     * 创建Vo
+     * 创建VO
      */
-    private static String createVo() {
-        StringBuilder sb = new StringBuilder();
+    private static String createVO() {
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < MESSAGE_ARR.length; i++) {
-            sb.append("@ApiModelProperty(value = \"" + MESSAGE_ARR[i] + "\")\r\n" +
+            builder.append("@ApiModelProperty(value = \"" + MESSAGE_ARR[i] + "\")\r\n" +
                       "private " + "String " + TRANSLATE_ARR[i] + ";\r\n\n"
             );
         }
-        return sb.toString();
+        return builder.toString();
     }
 
     /**

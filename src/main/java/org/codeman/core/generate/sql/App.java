@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @author hdgaadd
@@ -17,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 public class App {
     @Data
-    static class Example {
+    private static class Example {
         /**
          * 表字段注释
          */
@@ -29,7 +31,7 @@ public class App {
          */
         public String strTwo =
                 "id\n" +
-                "name";
+                "first Name";
     }
 
     private static final String TABLE_NAME = "test";
@@ -100,18 +102,6 @@ public class App {
      * @return 第一个字符串转换为小写，并添加"_"
      */
     private static String transform(String str) {
-        StringBuilder builder = new StringBuilder();
-        String[] arr = str.split(" ");
-        AtomicInteger index = new AtomicInteger(0);
-        Arrays.stream(arr).forEach(item -> {
-            if (index.get() == 0) {
-                builder.append(item.toLowerCase());
-                index.getAndAdd(1);
-            } else {
-                builder.append("_");
-                builder.append(item.toLowerCase());
-            }
-        });
-        return builder.toString();
+        return Arrays.stream(str.split(" ")).map(String::toLowerCase).collect(Collectors.joining("_"));
     }
 }

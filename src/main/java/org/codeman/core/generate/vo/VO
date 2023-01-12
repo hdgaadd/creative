@@ -1,6 +1,15 @@
-@ApiModelProperty(value = "测试姓名")
-private String testName;
+@ApiModelProperty(value = "星球")
+private String thePlanet;
 
-@ApiModelProperty(value = "测试地址")
-private String testAddress;
+@ApiModelProperty(value = "国家")
+private String nation;
+
+@ApiModelProperty(value = "城市")
+private String city;
+
+@ApiModelProperty(value = "地区")
+private String area;
+
+@ApiModelProperty(value = "村镇")
+private String village;
 

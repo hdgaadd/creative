@@ -42,9 +42,9 @@ public class App {
                 // 若是注释，设置StringBuilder不进行添加
                 boolean isUnexpected = false;
 
-                for (String detail : UNEXPECTED) {
-                    if (curLine.contains(detail)) {
-                        if (detail.equals("*/")) {
+                for (String unexpected : UNEXPECTED) {
+                    if (curLine.contains(unexpected)) {
+                        if (unexpected.equals("*/")) {
                             if (lineIndex++ != 0) BUILDER.append("\r\n");
                         }
                         isUnexpected = true;

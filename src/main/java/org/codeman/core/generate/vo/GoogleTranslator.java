@@ -27,7 +27,7 @@ public class GoogleTranslator {
 
     private static final String USER_AGENT = "Mozilla/5.0";
 
-    private static final Map<String, String> LANGUAGE_MAP = new HashMap();
+    private static final Map<String, String> LANGUAGE_MAP = new HashMap<>();
 
     private static GoogleTranslator _INSTANCE = null;
 
@@ -237,7 +237,7 @@ public class GoogleTranslator {
         String responseStr = null;
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(url);
-        //重要！！必须设置 http 头，否则返回为乱码
+        // 重要！！必须设置 http 头，否则返回为乱码
         httpPost.setHeader("User-Agent", USER_AGENT);
         CloseableHttpResponse response2 = null;
         try {

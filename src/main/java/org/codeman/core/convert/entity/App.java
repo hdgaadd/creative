@@ -59,6 +59,7 @@ public class App {
                 boolean isFieldName = cacheFieldName(curLine, isUnexpected, curFieldCommentBuilder);
                 handleReplaceContent(curLine, isUnexpected, isFieldName, curFieldCommentBuilder);
             }
+
             System.out.println(BASE_BUILDER);
         }
 

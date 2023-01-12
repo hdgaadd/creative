@@ -23,6 +23,8 @@ public class App {
 
     private final static String PATH = AddressUtil.getFileAddress("test.xlsx", App.class);
 
+    private final static List<String> NEED_LINE = new ArrayList<>();
+
     private final static List<String> KEYWORD = new ArrayList<String>(){{
         add("A");
         add("B");
@@ -30,7 +32,6 @@ public class App {
 
     public static void main(String[] args) throws IOException {
         Sheet sheet = new XSSFWorkbook(new FileInputStream(new File(PATH))).getSheetAt(0);
-        List<String> needLine = new ArrayList<>();
 
         int index = 0;
         for (Row row : sheet) {
@@ -38,18 +39,19 @@ public class App {
             for (Cell cell : row) {
                 builder.append(cell.toString()).append("  ");
             }
-            // 是否包含关键字 || 打印表头
+            // 打印表头 || 是否包含关键字
             if (index++ == 0 || isContains(builder.toString())) {
-                needLine.add(builder.toString());
+                NEED_LINE.add(builder.toString());
             }
         }
-        needLine.forEach(System.out::println);
+
+        NEED_LINE.forEach(System.out::println);
     }
 
-    private static boolean isContains(String builderStr) {
+    private static boolean isContains(String row) {
        AtomicBoolean ret = new AtomicBoolean(true);
        KEYWORD.forEach(key -> {
-           if (!builderStr.contains(key)) {
+           if (!row.contains(key)) {
                ret.set(false);
            }
        });
