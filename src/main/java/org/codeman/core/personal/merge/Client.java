@@ -10,11 +10,11 @@ import java.io.*;
  *
  * description: 合并大量文件，使用Notepad++进行快速查找
  */
-public class App {
+public class Client {
 
-    private static final String PATH = AddressUtil.getFileAddress("source\\", App.class);
+    private static final String PATH = AddressUtil.getFileAddress("source\\", Client.class);
 
-    private static final String FILE_OUT = AddressUtil.getFileAddress("PRODUCT.txt", App.class);
+    private static final String FILE_OUT = AddressUtil.getFileAddress("PRODUCT.txt", Client.class);
 
     public static void main(String[] args) throws IOException {
         File file = new File(PATH);

@@ -17,14 +17,14 @@ import java.util.List;
  * design: 如果上面有空行则进行匹配为一行，后续打印需打印空行
  */
 @Slf4j
-public class App {
+public class Client {
 
     private static final List<String> UNDONE = new ArrayList<>();
 
     private static final List<String> DONE = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader reader = AddressUtil.getFileReader(App.class)) {
+        try (BufferedReader reader = AddressUtil.getFileReader(Client.class)) {
             StringBuilder builder = new StringBuilder();
             String preLine = "";
             String curLine;
@@ -69,7 +69,7 @@ public class App {
      * 生成文件
      */
     private static void generateFile() throws IOException {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(AddressUtil.getFileAddress(App.class))), StandardCharsets.UTF_8))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(AddressUtil.getFileAddress(Client.class))), StandardCharsets.UTF_8))) {
             StringBuilder builder = new StringBuilder();
             UNDONE.forEach(item -> {
                 builder.append(item);

@@ -1,13 +1,10 @@
 package org.codeman.core.generate.sql;
 
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -17,22 +14,15 @@ import java.util.stream.Collectors;
  * design: 生成中文和添加"_"的英文映射Map -> 创建表
  */
 @Slf4j
-public class App {
-    @Data
-    private static class Example {
-        /**
-         * 表字段注释
-         */
-        public String strOne =
-                "序号\n" +
-                "名称";
-        /**
-         * 表字段名
-         */
-        public String strTwo =
-                "id\n" +
-                "first Name";
-    }
+public class Client {
+    /**
+     * 表字段名
+     */
+    private static final String FIELD_NAME = "id\n" + "first Name";
+    /**
+     * 表字段注释
+     */
+    private static final String FIELD_COMMENT = "序号\n" + "名称";
 
     private static final String TABLE_NAME = "test";
 
@@ -41,7 +31,7 @@ public class App {
     private static final StringBuilder BUILDER = new StringBuilder();
 
     public static void main(String[] args) {
-        Map<String, String> mapping = generateMapping(new Example());
+        Map<String, String> mapping = generateMapping();
         tableCreate(mapping);
         System.out.println(BUILDER);
     }
@@ -70,15 +60,12 @@ public class App {
     }
 
     /**
-     * @param example
      * @return 中文和英文的映射Map
      */
-    private static Map<String, String> generateMapping(Example example) {
-        String first = example.getStrOne();
-        String second = example.getStrTwo();
+    private static Map<String, String> generateMapping() {
         Map<String, String> mapping = new LinkedHashMap<>();
-        String[] firstArr = splitStr(first, "\n"); // 以", "结尾，而不是","
-        String[] secondArr = splitStr(second, "\n");
+        String[] firstArr = splitStr(FIELD_COMMENT, "\n"); // 以", "结尾，而不是","
+        String[] secondArr = splitStr(FIELD_NAME, "\n");
 
         log.info("原xsl的字段个数为: " + firstArr.length);
         for (int i = 0; i < firstArr.length; i++) {

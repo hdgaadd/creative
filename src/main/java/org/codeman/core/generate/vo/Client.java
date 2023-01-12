@@ -14,11 +14,11 @@ import java.util.Scanner;
  * description: 识图取字 -> 翻译 -> 创建VO
  */
 @Slf4j
-public class App {
+public class Client {
     /**
      * MESSAGE里的VO变量注释
      */
-    private static final String MESSAGE = AddressUtil.getFileString(App.class, "MESSAGE").replace(" ", "\n");
+    private static final String MESSAGE = AddressUtil.getFileString(Client.class, "MESSAGE").replace(" ", "\n");
     /**
      * 单词间间隔符号
      */
@@ -42,7 +42,7 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        boolean createResult = createFile(new File(AddressUtil.getFileAddress("VO", App.class)), createVO());
+        boolean createResult = createFile(new File(AddressUtil.getFileAddress("VO", Client.class)), createVO());
         log.info(createResult ? "======创建VO成功======" : "======创建VO失败======");
     }
 

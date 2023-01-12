@@ -11,11 +11,11 @@ import java.util.*;
  *
  * description: 查找所有API
  */
-public class App {
+public class Client {
 
     private static final String PATH = "C:\\Java\\jdk1.8.0_311\\src";
 
-    private static final String FILE_OUT = AddressUtil.getFileAddress("PRODUCT.txt", App.class);
+    private static final String FILE_OUT = AddressUtil.getFileAddress("PRODUCT.txt", Client.class);
 
     private static final List<String> MUST_KEYWORD = new ArrayList<String>() {{
         add("(");
@@ -34,21 +34,19 @@ public class App {
 
     private static final Set<String> CONTAINER = new HashSet<>();
 
-    private static BufferedWriter WRITER;
-
     public static void main(String[] args) throws IOException {
-        WRITER = new BufferedWriter(new FileWriter(FILE_OUT));
-
         dfsFile(new File(PATH));
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_OUT));
         CONTAINER.forEach(o -> {
             try {
-                WRITER.write(o);
-                WRITER.newLine();
+                writer.write(o);
+                writer.newLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-        WRITER.close();
+        writer.close();
     }
 
     private static void dfsFile(File files) throws IOException {
@@ -65,11 +63,8 @@ public class App {
 
             String line;
             while ((line = reader.readLine()) != null) {
-                int mustCount;
-                mustCount = (int) MUST_KEYWORD.stream().filter(line::contains).count();
-                int orCount;
-                orCount = (int) OR_KEYWORD.stream().filter(line::contains).count();
-
+                int mustCount = (int) MUST_KEYWORD.stream().filter(line::contains).count();
+                int orCount = (int) OR_KEYWORD.stream().filter(line::contains).count();
                 if (mustCount != MUST_KEYWORD.size() || orCount <= 0 || line.contains(curName.substring(0, curName.lastIndexOf(".")))) continue;
 
                 handleLine(line);

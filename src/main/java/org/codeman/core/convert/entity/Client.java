@@ -19,7 +19,7 @@ import java.util.Map;
  * design: 去除不期望的 -> 缓存字段注释 -> 内容替换、添加@JsonProperty、添加缓存字段注释、添加变量声明
  */
 @Slf4j
-public class App {
+public class Client {
 
     private static final List<String> UNEXPECTED = new ArrayList<String>() {{
         add("/// <summary>");
@@ -49,7 +49,7 @@ public class App {
     private static int realKeyword = 0;
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = AddressUtil.getFileReader(App.class)) {
+        try (BufferedReader bufferedReader = AddressUtil.getFileReader(Client.class)) {
             String curLine;
             // 缓存字段注释，让@JsonProperty在注释前面
             StringBuilder curFieldCommentBuilder = new StringBuilder();
@@ -73,7 +73,7 @@ public class App {
      * @throws IOException
      */
     private static void documentScanning() throws IOException{
-        try (BufferedReader bufferedReader = AddressUtil.getFileReader(App.class)) {
+        try (BufferedReader bufferedReader = AddressUtil.getFileReader(Client.class)) {
             String curLine;
             while ((curLine = bufferedReader.readLine()) != null) {
                 if (curLine.contains("get") && curLine.contains("set")) realKeyword++;

@@ -15,7 +15,7 @@ import java.util.List;
  *
  * design: 读取每一行，剔除不希望的
  */
-public class App {
+public class Client {
 
     private static final List<String> UNEXPECTED = new ArrayList<String>(){{
         add("/**");
@@ -34,7 +34,7 @@ public class App {
     }
 
     private static void handleEveryLine() throws IOException {
-        try (BufferedReader bufferedReader = AddressUtil.getFileReader(App.class)) {
+        try (BufferedReader bufferedReader = AddressUtil.getFileReader(Client.class)) {
             String curLine;
             int lineIndex = 0;
 

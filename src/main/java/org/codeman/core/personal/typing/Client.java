@@ -11,7 +11,7 @@ import java.util.*;
  *
  * description: code typing
  */
-public class App {
+public class Client {
 
     private static final String SOURCE_PATH = "D:\\Users\\win\\Desktop\\block\\note\\company\\z-recite.txt";
 

@@ -19,9 +19,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * description: excel转换为String，打印出包含关键字符串的行
  */
-public class App {
+public class Client {
 
-    private final static String PATH = AddressUtil.getFileAddress("test.xlsx", App.class);
+    private final static String PATH = AddressUtil.getFileAddress("test.xlsx", Client.class);
 
     private final static List<String> NEED_LINE = new ArrayList<>();
 

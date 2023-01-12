@@ -15,12 +15,12 @@ import java.io.IOException;
  * typing地址: https://10fastfingers.com/widgets/typingtest
  */
 @Slf4j
-public class App {
+public class Client {
 
     private static final String KEY_WORD = " ";
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader bufferedReader = AddressUtil.getFileReader(App.class)) {
+        try (BufferedReader bufferedReader = AddressUtil.getFileReader(Client.class)) {
             String curLine;
             while ((curLine = bufferedReader.readLine()) != null) if (curLine.contains(KEY_WORD)) log.info("存在\" \"的行: " + curLine);
         }
