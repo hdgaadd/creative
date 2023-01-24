@@ -9,13 +9,14 @@ creative
           └── sql -- 格式化SQL
      ├── generate -- 文件生成
           ├── sql -- MySQL表生成
-          └── vo -- VO实体生成
+          └── vo -- VO实体类生成
      ├── personal
-          ├── excel -- excel查找
+          ├── excel -- excel查找特定行
+          ├── find -- 查找API名称
           ├── merge -- 文件合并
           ├── move -- 移动文件行
-          ├── typing -- typing
-          └── verify -- 自定义检查
+          ├── typing -- 打字练习
+          └── verify
      └── todo -- 待做
 ```
 
