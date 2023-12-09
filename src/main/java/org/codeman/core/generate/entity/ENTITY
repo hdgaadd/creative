@@ -1,0 +1,18 @@
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProductDetailResp {
+private String commodityName;
+private Integer balance;
+private String addressInfo;
+private String noAnchorGameRoomAddr;
+}
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class BuyProductResp {
+private boolean success;
+}

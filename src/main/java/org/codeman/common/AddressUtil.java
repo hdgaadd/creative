@@ -61,6 +61,21 @@ public final class AddressUtil {
      * @param clazz
      * @return 文件String格式
      */
+    public static String getFileStringUseReplace(Class<?> clazz, String fileName) {
+        SOURCE_NAME = fileName;
+        String fileStr = null;
+        try {
+            fileStr = FileUtils.readFileToString(new File(getFileAddress(clazz)), StandardCharsets.UTF_8).replace("\r\n", " ");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return fileStr;
+    }
+
+    /**
+     * @param clazz
+     * @return 文件String格式
+     */
     public static String getFileString(Class<?> clazz, String fileName) {
         SOURCE_NAME = fileName;
         String fileStr = null;
