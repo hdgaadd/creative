@@ -10,9 +10,9 @@ import org.codeman.common.AddressUtil;
  *
  * design: 确认select、from、where各自的范围下标 -> 确认select、from、where各自的字符串 -> 格式化
  */
-public class Client {
+public class BeautifySQL {
 
-    private static final String SQL_SOURCE = AddressUtil.getFileString(Client.class, "YOUR_SQL");
+    private static final String SQL_SOURCE = AddressUtil.getFileString(BeautifySQL.class, "YOUR_SQL");
 
     private static final StringBuilder BUILDER = new StringBuilder();
 

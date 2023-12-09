@@ -27,11 +27,6 @@ public class SQLFormat {
         return formattedSQL;
     }
 
-//    public static void main(String[] args) {
-//        String SQL = "SELECT id, uid, status, address_name, address_phone, remark_test, remark, create_time, update_time FROM one_dollar_order";
-//        System.out.println(addCamelCaseAlias(SQL));
-//    }
-
     public static String addCamelCaseAlias(String sql) {
         String[] columns = sql.replaceAll("(?i)SELECT\\s+", "")
                 .replaceAll("\\s+(?i)FROM.*", "")
