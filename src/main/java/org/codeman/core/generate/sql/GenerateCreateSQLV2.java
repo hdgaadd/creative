@@ -1,6 +1,6 @@
-package org.codeman.core.convert.sql;
+package org.codeman.core.generate.sql;
 
-import org.codeman.core.convert.sql.util.GenerateSQL;
+import org.codeman.core.generate.sql.util.GenerateSQL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenerateSelectAndInsertSQL {
+public class GenerateCreateSQLV2 {
 
     public static void main(String[] args) throws SQLException {
         String url = "";
@@ -20,7 +20,7 @@ public class GenerateSelectAndInsertSQL {
 
         Connection connection = DriverManager.getConnection(url, user, password);
         for (String table : list) {
-            GenerateSQL.generateSelectAndInsertSQL(connection, table);
+            GenerateSQL.generateCreateSQL(connection, table);
             System.out.println("\n");
         }
         connection.close();

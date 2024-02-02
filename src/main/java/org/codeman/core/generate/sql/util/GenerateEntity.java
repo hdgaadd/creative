@@ -1,4 +1,4 @@
-package org.codeman.core.convert.sql.util;
+package org.codeman.core.generate.sql.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +17,11 @@ public class GenerateEntity {
             "public class DO {\n";
 
     public static String generateEntity(String sql) {
-        Pattern pattern = Pattern.compile("`\\w+`"); // create a pattern to match the alias names
+        Pattern pattern = Pattern.compile("`\\w+`");
         Matcher matcher = pattern.matcher(sql);
         List<String> aliases = new ArrayList<>();
         while (matcher.find()) {
-            String alias = matcher.group().replace("`", ""); // remove the backticks from the matched string
+            String alias = matcher.group().replace("`", "");
             aliases.add(alias);
         }
         String[] aliasArray = aliases.toArray(new String[0]);

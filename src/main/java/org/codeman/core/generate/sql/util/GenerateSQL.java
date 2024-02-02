@@ -1,4 +1,4 @@
-package org.codeman.core.convert.sql.util;
+package org.codeman.core.generate.sql.util;
 
 import java.sql.Connection;
 import java.sql.ResultSetMetaData;

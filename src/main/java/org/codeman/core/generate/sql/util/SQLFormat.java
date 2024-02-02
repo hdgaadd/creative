@@ -1,4 +1,4 @@
-package org.codeman.core.convert.sql.util;
+package org.codeman.core.generate.sql.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

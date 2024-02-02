@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * design: 生成中文和添加"_"的英文映射Map -> 创建表
  */
 @Slf4j
-public class Client {
+public class GenerateCreateSQLV1 {
     /**
      * 表字段名
      */
